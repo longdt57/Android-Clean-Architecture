@@ -32,7 +32,7 @@ fun BottomNavigationApp(navController: NavHostController) {
     ) { paddingValues ->
         AppNavGraph(
             navController = navController,
-            modifier = Modifier.padding(paddingValues)
+            modifier = Modifier.padding(bottom = paddingValues.calculateBottomPadding())
         )
     }
 }
