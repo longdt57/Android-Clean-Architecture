@@ -21,9 +21,10 @@ detekt {
     source = files(
         "app/src/main/java",
         "compose/src/main/java",
-        "extension/src/main/java",
         "gituser/src/main/java",
+        "note/src/main/java",
         "photosample/src/main/java",
+        "sample/src/main/java",
         "test/src/main/java"
     )
     parallel = false

@@ -9,6 +9,7 @@ fun String.hexToColor(): Color {
 
 fun randomString(words: Int): String = LoremIpsum(words).values.joinToString()
 
+@Suppress("MagicNumber")
 fun String?.appVersionToInt(): Int {
     return this?.split(".")?.mapIndexed { index, value ->
         when (index) {

@@ -102,6 +102,7 @@ internal class NoteViewModel @Inject constructor(
         }
     }
 
+    @Suppress("TooGenericExceptionCaught")
     private fun syncToCloudPeriodic() {
         viewModelScope.launch(dispatchersProvider.io) {
             try {

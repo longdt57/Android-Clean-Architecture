@@ -10,14 +10,15 @@ import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
+import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.window.core.layout.WindowWidthSizeClass
 import com.example.note.ui.models.NoteUiModel
-import com.example.note.ui.models.ScreenSize
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import leegroup.module.compose.support.extensions.randomString
@@ -25,6 +26,7 @@ import leegroup.module.compose.ui.components.LoadMoreGrid
 import leegroup.module.compose.ui.theme.ComposeTheme
 
 @Composable
+@Suppress("MagicNumber")
 internal fun NotesGrid(
     notes: ImmutableList<NoteUiModel>,
     onLoadMore: () -> Unit = {},
@@ -32,8 +34,15 @@ internal fun NotesGrid(
     onClick: (NoteUiModel) -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    val screenSize = ScreenSize.fromWidth(LocalConfiguration.current.screenWidthDp)
-    val columnCount = screenSize.columnCount
+    val screenSize = currentWindowAdaptiveInfo()
+    val columnCount = remember {
+        when (screenSize.windowSizeClass.windowWidthSizeClass) {
+            WindowWidthSizeClass.COMPACT -> 1
+            WindowWidthSizeClass.MEDIUM -> 2
+            WindowWidthSizeClass.EXPANDED -> 3
+            else -> 1
+        }
+    }
 
     val listState = rememberLazyGridState()
     LoadMoreGrid(gridState = listState, onLoadMore = onLoadMore)

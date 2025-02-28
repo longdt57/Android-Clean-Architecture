@@ -19,6 +19,7 @@ internal class SyncToCloudWorker @AssistedInject constructor(
     params
 ) {
 
+    @Suppress("TooGenericExceptionCaught")
     override suspend fun doWork(): Result {
         return try {
             Timber.d("Syncing notes with server...")
