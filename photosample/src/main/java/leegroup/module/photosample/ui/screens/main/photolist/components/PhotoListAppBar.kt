@@ -14,7 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import leegroup.module.compose.ui.theme.ComposeTheme
 import leegroup.module.photosample.R
-import leegroup.module.photosample.ui.screens.components.FavoriteButton
+import leegroup.module.photosample.ui.screens.components.FavoriteIcon
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -33,7 +33,7 @@ internal fun PhotoListAppBar(
             )
         },
         actions = {
-            FavoriteButton(
+            FavoriteIcon(
                 modifier = Modifier
                     .padding(end = 8.dp)
                     .size(32.dp),
