@@ -24,7 +24,6 @@ rootProject.name = "Compose"
 include(":app")
 include(":gituser")
 include(":photosample")
-include(":note")
 include(":sample")
 
 include(":compose")

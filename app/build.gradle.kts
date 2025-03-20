@@ -128,7 +128,6 @@ dependencies {
     implementation(project(":compose"))
     implementation(project(":gituser"))
     implementation(project(":photosample"))
-    implementation(project(":note"))
     implementation(project(":sample"))
 
     // Lifecycle
@@ -204,7 +203,7 @@ dependencies {
     kover(project(":compose"))
     kover(project(":gituser"))
     kover(project(":photosample"))
-    kover(project(":note"))
+    kover(project(":sample"))
 }
 
 kover {
