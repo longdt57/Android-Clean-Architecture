@@ -12,6 +12,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import leegroup.module.compose.support.util.JsonUtil
+import leegroup.module.compose.support.util.SavedStateProvider
 import leegroup.module.compose.ui.models.ErrorState
 import leegroup.module.sample.gituser.MockUtil
 import leegroup.module.sample.gituser.domain.models.GitUserDetailModel
@@ -28,6 +29,7 @@ import org.junit.Test
 class GitUserDetailViewModelTest : BaseUnitTest() {
 
     private lateinit var mockSavedStateHandle: SavedStateHandle
+    private val savedStateProvider: SavedStateProvider<GitUserDestination.GitUserDetail.GitUserDetailNav> = mockk()
     private val mockLocalUseCase: GetGitUserDetailLocalUseCase = mockk()
     private val mockRemoteUseCase: GetGitUserDetailRemoteUseCase = mockk()
     private val mockUiMapper: GitUserDetailUiMapper = mockk()
@@ -60,6 +62,7 @@ class GitUserDetailViewModelTest : BaseUnitTest() {
     @Before
     fun setUp() {
         val nav = GitUserDestination.GitUserDetail.GitUserDetailNav(userLogin)
+        every { savedStateProvider.toRoute(any()) } returns nav
         mockSavedStateHandle = SavedStateHandle(JsonUtil.encodeToMap(nav))
         every { mockUiMapper.mapToUiModel(any(), any()) } returns gitUserDetailUiModel
     }
@@ -67,6 +70,7 @@ class GitUserDetailViewModelTest : BaseUnitTest() {
     private fun initViewModel() {
         viewModel = GitUserDetailViewModel(
             savedStateHandle = mockSavedStateHandle,
+            savedStateProvider,
             testDispatcherProvider,
             mockLocalUseCase,
             mockRemoteUseCase,

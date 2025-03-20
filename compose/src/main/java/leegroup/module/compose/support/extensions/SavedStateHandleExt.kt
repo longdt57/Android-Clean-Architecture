@@ -7,8 +7,9 @@ import kotlinx.serialization.json.JsonPrimitive
 import leegroup.module.compose.support.util.JsonUtil
 
 /**
- * Similar to [SavedStateHandle.toNavModel]
+ * Similar to [SavedStateHandle.toRoute]
  */
+@Deprecated("Use [leegroup.module.compose.support.util.SavedStateProvider]")
 inline fun <reified T : Any> SavedStateHandle.toNavModel(): T {
     val map = mutableMapOf<String, JsonElement>()
 

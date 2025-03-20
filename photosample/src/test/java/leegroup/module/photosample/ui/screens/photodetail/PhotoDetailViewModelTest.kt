@@ -3,9 +3,11 @@ package leegroup.module.photosample.ui.screens.photodetail
 import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
 import io.mockk.coVerify
+import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
 import leegroup.module.compose.support.util.JsonUtil
+import leegroup.module.compose.support.util.SavedStateProvider
 import leegroup.module.photosample.domain.params.SaveFavoriteParam
 import leegroup.module.photosample.domain.usecases.photofavorite.SaveFavoriteUseCase
 import leegroup.module.photosample.ui.screens.main.PhotoDetailNav
@@ -21,6 +23,7 @@ class PhotoDetailViewModelTest : BaseUnitTest() {
 
     private lateinit var viewModel: PhotoDetailViewModel
     private lateinit var savedStateHandle: SavedStateHandle
+    private lateinit var savedStateProvider: SavedStateProvider<PhotoDetailNav>
     private lateinit var saveFavoriteUseCase: SaveFavoriteUseCase
 
     private val photoDetailNav = PhotoDetailNav(
@@ -36,10 +39,14 @@ class PhotoDetailViewModelTest : BaseUnitTest() {
     @Before
     fun setUp() {
         savedStateHandle = SavedStateHandle(JsonUtil.encodeToMap(photoDetailNav))
+        savedStateProvider = mockk()
         saveFavoriteUseCase = mockk(relaxed = true)
+
+        every { savedStateProvider.toRoute(any()) } returns photoDetailNav
 
         viewModel = PhotoDetailViewModel(
             savedStateHandle = savedStateHandle,
+            savedStateProvider = savedStateProvider,
             dispatchersProvider = testDispatcherProvider,
             saveFavoriteUseCase = saveFavoriteUseCase
         )

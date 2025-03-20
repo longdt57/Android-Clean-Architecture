@@ -4,8 +4,8 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import leegroup.module.compose.support.extensions.toNavModel
 import leegroup.module.compose.support.util.DispatchersProvider
+import leegroup.module.compose.support.util.SavedStateProvider
 import leegroup.module.compose.ui.viewmodel.StateViewModel
 import leegroup.module.photosample.domain.params.SaveFavoriteParam
 import leegroup.module.photosample.domain.usecases.photofavorite.SaveFavoriteUseCase
@@ -17,6 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 internal class PhotoDetailViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
+    private val savedStateProvider: SavedStateProvider<PhotoDetailNav>,
     private val dispatchersProvider: DispatchersProvider,
     private val saveFavoriteUseCase: SaveFavoriteUseCase,
 ) : StateViewModel<PhotoDetailUiModel>(PhotoDetailUiModel()) {
@@ -43,7 +44,7 @@ internal class PhotoDetailViewModel @Inject constructor(
     }
 
     private fun loadFromSavedStateHandle() {
-        val navModel = savedStateHandle.toNavModel<PhotoDetailNav>()
+        val navModel = savedStateProvider.toRoute(savedStateHandle)
         update { oldValue ->
             oldValue.update(navModel)
         }

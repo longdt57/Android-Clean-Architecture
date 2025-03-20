@@ -7,8 +7,8 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import leegroup.module.compose.support.extensions.toNavModel
 import leegroup.module.compose.support.util.DispatchersProvider
+import leegroup.module.compose.support.util.SavedStateProvider
 import leegroup.module.compose.ui.models.ErrorState
 import leegroup.module.compose.ui.viewmodel.StateViewModel
 import leegroup.module.sample.gituser.domain.models.GitUserDetailModel
@@ -23,6 +23,7 @@ import javax.inject.Inject
 @HiltViewModel
 internal class GitUserDetailViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
+    private val savedStateProvider: SavedStateProvider<GitUserDestination.GitUserDetail.GitUserDetailNav>,
     private val dispatchersProvider: DispatchersProvider,
     private val getGitUserDetailLocalUseCase: GetGitUserDetailLocalUseCase,
     private val getGitUserDetailRemoteUseCase: GetGitUserDetailRemoteUseCase,
@@ -34,8 +35,7 @@ internal class GitUserDetailViewModel @Inject constructor(
     }
 
     private fun loadFromSavedStateHandle() {
-        val navModel =
-            savedStateHandle.toNavModel<GitUserDestination.GitUserDetail.GitUserDetailNav>()
+        val navModel = savedStateProvider.toRoute(savedStateHandle)
         setUserLogin(navModel.login)
     }
 
