@@ -9,7 +9,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import leegroup.module.compose.support.extensions.launchSingleTopNavOptions
+import leegroup.module.designsystem.support.extensions.launchSingleTopNavOptions
 
 @Composable
 fun BottomBar(navController: NavHostController) {

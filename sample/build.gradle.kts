@@ -57,7 +57,7 @@ android {
 
 dependencies {
 
-    implementation(project(":compose"))
+    implementation(project(":core:designsystem"))
 
     // Lifecycle
     implementation(libs.bundles.androidx.lifecycle)

@@ -11,8 +11,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import leegroup.module.compose.ui.theme.ComposeTheme
-import leegroup.module.compose.ui.theme.GreySoft200
 import leegroup.module.sample.gituser.R
 import leegroup.module.sample.gituser.support.extensions.formatAndOpenUrl
 
@@ -33,7 +31,7 @@ internal fun GitUserDetailBlog(modifier: Modifier = Modifier, blog: String) {
                 .padding(vertical = 8.dp),
             text = blog,
             style = MaterialTheme.typography.bodyLarge,
-            color = GreySoft200,
+            color = leegroup.module.designsystem.theme.GreySoft200,
         )
     }
 }
@@ -41,7 +39,7 @@ internal fun GitUserDetailBlog(modifier: Modifier = Modifier, blog: String) {
 @Preview(showSystemUi = true)
 @Composable
 private fun BlogPreview() {
-    ComposeTheme {
+    leegroup.module.designsystem.theme.ComposeTheme {
         GitUserDetailBlog(blog = "https://www.google.com")
     }
 }

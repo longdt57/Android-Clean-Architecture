@@ -11,7 +11,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
-import leegroup.module.compose.ui.models.ErrorState
+import leegroup.module.designsystem.ui.models.ErrorState
 import leegroup.module.photosample.domain.models.PhotoModelD
 import leegroup.module.photosample.domain.params.SaveFavoriteParam
 import leegroup.module.photosample.domain.usecases.photofavorite.ObserveFavoriteListUseCase

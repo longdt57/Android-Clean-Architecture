@@ -20,5 +20,5 @@ include(":gituser")
 include(":photosample")
 include(":sample")
 
-include(":compose")
+include(":core:designsystem")
 include(":test")

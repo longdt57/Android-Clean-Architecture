@@ -24,8 +24,7 @@ import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import leegroup.module.compose.ui.components.LoadMore
-import leegroup.module.compose.ui.theme.ComposeTheme
+import leegroup.module.designsystem.components.LoadMore
 import leegroup.module.sample.gituser.domain.models.GitUserModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -82,7 +81,7 @@ internal fun GitUserList(
 @Preview(showBackground = true)
 @Composable
 private fun ScreenPreview() {
-    ComposeTheme {
+    leegroup.module.designsystem.theme.ComposeTheme {
         GitUserList(
             users = persistentListOf(
                 GitUserModel(

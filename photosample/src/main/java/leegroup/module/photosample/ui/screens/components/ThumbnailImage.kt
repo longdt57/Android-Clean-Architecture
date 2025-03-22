@@ -12,7 +12,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import leegroup.module.compose.ui.theme.ComposeTheme
 import leegroup.module.photosample.R
 import leegroup.module.photosample.support.extensions.convertToDummyUrl
 
@@ -32,7 +31,7 @@ internal fun ThumbnailImage(modifier: Modifier = Modifier, url: String) {
 @Preview(showBackground = true)
 @Composable
 private fun UserCircleAvatarPreview() {
-    ComposeTheme {
+    leegroup.module.designsystem.theme.ComposeTheme {
         ThumbnailImage(
             modifier = Modifier
                 .size(40.dp)

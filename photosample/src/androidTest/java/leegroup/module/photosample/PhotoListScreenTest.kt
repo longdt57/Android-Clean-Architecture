@@ -11,7 +11,6 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import kotlinx.collections.immutable.persistentListOf
-import leegroup.module.compose.ui.theme.ComposeTheme
 import leegroup.module.photosample.ui.models.PhotoListUiModel
 import leegroup.module.photosample.ui.models.PhotoUiModel
 import leegroup.module.photosample.ui.screens.main.photolist.PhotoListContent
@@ -32,7 +31,7 @@ class PhotoListScreenTest {
 
         // Start the app
         composeTestRule.setContent {
-            ComposeTheme {
+            leegroup.module.designsystem.theme.ComposeTheme {
                 PhotoListContent(
                     modifier = Modifier
                         .fillMaxSize()
@@ -80,7 +79,7 @@ class PhotoListScreenTest {
             )
         )
         composeTestRule.setContent {
-            ComposeTheme {
+            leegroup.module.designsystem.theme.ComposeTheme {
                 PhotoListContent(
                     modifier = Modifier
                         .fillMaxSize()

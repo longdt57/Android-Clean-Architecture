@@ -18,7 +18,6 @@ import androidx.compose.ui.text.style.TextOverflow.Companion.Ellipsis
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
-import leegroup.module.compose.ui.theme.ComposeTheme
 import leegroup.module.photosample.ui.screens.components.FavoriteButton
 import leegroup.module.photosample.ui.screens.components.ThumbnailImage
 
@@ -72,7 +71,7 @@ internal fun PhotoListItem(
 @Composable
 @Suppress("MagicNumber")
 private fun Preview() {
-    ComposeTheme {
+    leegroup.module.designsystem.theme.ComposeTheme {
         PhotoListItem(
             thumbnailUrl = "https://via.placeholder.com/150",
             title = LoremIpsum(10).values.joinToString(),

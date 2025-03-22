@@ -10,10 +10,10 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import leegroup.modul.sample.ui.models.SampleUiState
-import leegroup.module.compose.support.extensions.collectAsEffect
-import leegroup.module.compose.ui.components.BaseScreen
-import leegroup.module.compose.ui.components.CenterTopAppBar
-import leegroup.module.compose.ui.models.BaseDestination
+import leegroup.module.designsystem.components.BaseScreen
+import leegroup.module.designsystem.components.CenterTopAppBar
+import leegroup.module.designsystem.support.extensions.collectAsEffect
+import leegroup.module.designsystem.ui.models.BaseDestination
 
 @Composable
 fun SampleScreen(

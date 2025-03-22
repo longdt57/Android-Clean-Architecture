@@ -1,6 +1,6 @@
 package leegroup.modul.sample.ui
 
-import leegroup.module.compose.ui.models.BaseDestination
+import leegroup.module.designsystem.ui.models.BaseDestination
 
 sealed class SampleDestination {
     object SampleScreen : BaseDestination("sampleScreen")

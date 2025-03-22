@@ -9,7 +9,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
-import leegroup.module.compose.ui.theme.ComposeTheme
 import leegroup.module.sample.gituser.support.extensions.formatAndOpenUrl
 
 @Composable
@@ -30,7 +29,7 @@ internal fun LinkText(modifier: Modifier = Modifier, url: String) {
 @Preview(showBackground = true)
 @Composable
 private fun LinkTextPreview() {
-    ComposeTheme {
+    leegroup.module.designsystem.theme.ComposeTheme {
         LinkText(url = "https://github.com/longdt57")
     }
 }

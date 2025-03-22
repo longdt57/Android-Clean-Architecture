@@ -1,6 +1,6 @@
 package leegroup.module.photosample.ui.screens.main
 
-import leegroup.module.compose.ui.models.BaseDestination
+import leegroup.module.designsystem.ui.models.BaseDestination
 import leegroup.module.photosample.ui.models.PhotoUiModel
 
 sealed class PhotoDestination {

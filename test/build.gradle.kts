@@ -34,7 +34,7 @@ android {
 
 dependencies {
 
-    implementation(project(":compose"))
+    implementation(project(":core:designsystem"))
     implementation(libs.bundles.test)
 
 }

@@ -16,7 +16,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import leegroup.module.compose.ui.theme.ComposeTheme
 import leegroup.module.sample.gituser.R
 
 @Composable
@@ -40,7 +39,7 @@ internal fun GitUserDetailLocation(modifier: Modifier = Modifier, location: Stri
 @Preview(showSystemUi = true)
 @Composable
 private fun LocationPreview() {
-    ComposeTheme {
+    leegroup.module.designsystem.theme.ComposeTheme {
         GitUserDetailLocation(location = "San Francisco, CA")
     }
 }

@@ -1,7 +1,7 @@
 package leegroup.module.sample.gituser.ui.screens
 
 import kotlinx.serialization.Serializable
-import leegroup.module.compose.ui.models.BaseDestination
+import leegroup.module.designsystem.ui.models.BaseDestination
 
 sealed class GitUserDestination {
     object GitUserRoot : BaseDestination("gitUserRoot")

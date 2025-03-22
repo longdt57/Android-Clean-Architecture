@@ -8,8 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
-import leegroup.module.compose.support.extensions.appNavigate
-import leegroup.module.compose.support.extensions.composable
+import leegroup.module.designsystem.support.extensions.appNavigate
+import leegroup.module.designsystem.support.extensions.composable
 import leegroup.module.photosample.ui.models.PhotoUiModel
 import leegroup.module.photosample.ui.screens.main.photodetail.PhotoDetailScreen
 import leegroup.module.photosample.ui.screens.main.photolist.PhotoListScreen

@@ -9,9 +9,9 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import leegroup.module.compose.support.util.DispatchersProvider
-import leegroup.module.compose.ui.models.ErrorState
-import leegroup.module.compose.ui.viewmodel.StateViewModel
+import leegroup.module.designsystem.support.util.DispatchersProvider
+import leegroup.module.designsystem.ui.models.ErrorState
+import leegroup.module.designsystem.ui.viewmodel.StateViewModel
 import leegroup.module.sample.gituser.domain.models.GitUserModel
 import leegroup.module.sample.gituser.domain.params.GetGitUserListParam
 import leegroup.module.sample.gituser.domain.usecases.gituser.GetGitUserUseCase

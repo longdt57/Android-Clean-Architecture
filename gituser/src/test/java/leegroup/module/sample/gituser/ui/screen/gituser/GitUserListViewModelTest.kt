@@ -8,8 +8,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
-import leegroup.module.compose.ui.models.ErrorState
-import leegroup.module.compose.ui.models.LoadingState
+import leegroup.module.designsystem.ui.models.ErrorState
+import leegroup.module.designsystem.ui.models.LoadingState
 import leegroup.module.sample.gituser.MockUtil
 import leegroup.module.sample.gituser.domain.models.GitUserModel
 import leegroup.module.sample.gituser.domain.params.GetGitUserListParam

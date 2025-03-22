@@ -17,8 +17,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import leegroup.module.compose.ui.theme.ComposeTheme
-import leegroup.module.compose.ui.theme.GreySoft950
 import leegroup.module.sample.gituser.R
 
 @Composable
@@ -26,7 +24,7 @@ internal fun UserAvatar(modifier: Modifier = Modifier, avatarUrl: String?) {
     Box(
         modifier = modifier
             .clip(RoundedCornerShape(8.dp))
-            .background(GreySoft950),
+            .background(leegroup.module.designsystem.theme.GreySoft950),
     ) {
         AsyncImage(
             modifier = Modifier
@@ -49,7 +47,7 @@ internal fun UserAvatar(modifier: Modifier = Modifier, avatarUrl: String?) {
 @Preview(showBackground = true)
 @Composable
 private fun UserCircleAvatarPreview() {
-    ComposeTheme {
+    leegroup.module.designsystem.theme.ComposeTheme {
         UserAvatar(
             modifier = Modifier.size(40.dp),
             avatarUrl = "https://avatars.githubusercontent.com/u/1?v=4"

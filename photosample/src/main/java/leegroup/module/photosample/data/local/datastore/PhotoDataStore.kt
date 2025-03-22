@@ -5,8 +5,8 @@ import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.stringSetPreferencesKey
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import leegroup.module.compose.data.datastore.BaseDataStore
-import leegroup.module.compose.support.extensions.orFalse
+import leegroup.module.designsystem.data.datastore.BaseDataStore
+import leegroup.module.designsystem.support.extensions.orFalse
 import javax.inject.Inject
 import javax.inject.Singleton
 

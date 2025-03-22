@@ -14,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import leegroup.module.compose.ui.theme.ComposeTheme
 import leegroup.module.sample.gituser.ui.components.AppHorizontalDivider
 import leegroup.module.sample.gituser.ui.components.UserAvatar
 import leegroup.module.sample.gituser.ui.components.UserCard
@@ -70,7 +69,7 @@ private fun GitUserDetailTitle(modifier: Modifier, title: String) {
 @Preview(showBackground = true)
 @Composable
 private fun GitUserDetailItemPreview() {
-    ComposeTheme {
+    leegroup.module.designsystem.theme.ComposeTheme {
         GitUserDetailCard(
             name = "longdt57",
             avatarUrl = "https://avatars.githubusercontent.com/u/1?v=4",

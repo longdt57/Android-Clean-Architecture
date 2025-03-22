@@ -1,6 +1,6 @@
 package leegroup.module.sample.gituser
 
-import leegroup.module.compose.ui.models.ErrorState
+import leegroup.module.designsystem.ui.models.ErrorState
 import java.net.UnknownHostException
 
 object MockUtil {

@@ -9,8 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import leegroup.modul.sample.ui.screens.main.SampleScreen
-import leegroup.module.compose.support.extensions.appNavigate
-import leegroup.module.compose.support.extensions.composable
+import leegroup.module.designsystem.support.extensions.appNavigate
+import leegroup.module.designsystem.support.extensions.composable
 
 fun NavGraphBuilder.sampleNavGraph(
     navController: NavHostController,

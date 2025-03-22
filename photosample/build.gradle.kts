@@ -58,7 +58,7 @@ android {
 
 dependencies {
 
-    implementation(project(":compose"))
+    implementation(project(":core:designsystem"))
     implementation(libs.android.tracking)
 
     // Lifecycle

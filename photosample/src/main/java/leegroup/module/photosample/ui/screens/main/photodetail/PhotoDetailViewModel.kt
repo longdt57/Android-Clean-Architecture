@@ -4,9 +4,9 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import leegroup.module.compose.support.util.DispatchersProvider
-import leegroup.module.compose.support.util.SavedStateProvider
-import leegroup.module.compose.ui.viewmodel.StateViewModel
+import leegroup.module.designsystem.support.util.DispatchersProvider
+import leegroup.module.designsystem.support.util.SavedStateProvider
+import leegroup.module.designsystem.ui.viewmodel.StateViewModel
 import leegroup.module.photosample.domain.params.SaveFavoriteParam
 import leegroup.module.photosample.domain.usecases.photofavorite.SaveFavoriteUseCase
 import leegroup.module.photosample.ui.models.PhotoDetailUiModel

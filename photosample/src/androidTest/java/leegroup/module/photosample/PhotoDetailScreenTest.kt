@@ -11,7 +11,6 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import leegroup.module.compose.ui.theme.ComposeTheme
 import leegroup.module.photosample.ui.models.PhotoDetailUiModel
 import leegroup.module.photosample.ui.screens.main.photodetail.PhotoDetailContent
 import org.junit.Rule
@@ -31,7 +30,7 @@ class PhotoDetailScreenTest {
 
         // Start the app
         composeTestRule.setContent {
-            ComposeTheme {
+            leegroup.module.designsystem.theme.ComposeTheme {
                 PhotoDetailContent(
                     modifier = Modifier
                         .fillMaxSize()
@@ -56,7 +55,7 @@ class PhotoDetailScreenTest {
             isFavorite = true
         )
         composeTestRule.setContent {
-            ComposeTheme {
+            leegroup.module.designsystem.theme.ComposeTheme {
                 PhotoDetailContent(
                     modifier = Modifier
                         .fillMaxSize()

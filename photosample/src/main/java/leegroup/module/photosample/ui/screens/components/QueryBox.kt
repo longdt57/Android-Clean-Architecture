@@ -20,7 +20,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import leegroup.module.compose.ui.theme.ComposeTheme
 
 @Composable
 internal fun QueryBox(
@@ -58,7 +57,7 @@ internal fun QueryBox(
 @Composable
 fun QueryBoxEmptyPreview() {
     var query by remember { mutableStateOf("") }
-    ComposeTheme {
+    leegroup.module.designsystem.theme.ComposeTheme {
         QueryBox(
             query = query,
             onQueryChanged = { query = it },
@@ -74,7 +73,7 @@ fun QueryBoxEmptyPreview() {
 @Composable
 fun QueryBoxPreview() {
     var query by remember { mutableStateOf("Nature") }
-    ComposeTheme {
+    leegroup.module.designsystem.theme.ComposeTheme {
         QueryBox(
             query = query,
             onQueryChanged = { query = it },

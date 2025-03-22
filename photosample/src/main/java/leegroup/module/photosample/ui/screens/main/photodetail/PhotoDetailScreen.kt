@@ -19,10 +19,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import leegroup.module.compose.support.extensions.collectAsEffect
-import leegroup.module.compose.ui.components.BaseScreen
-import leegroup.module.compose.ui.models.BaseDestination
-import leegroup.module.compose.ui.theme.ComposeTheme
+import leegroup.module.designsystem.components.BaseScreen
+import leegroup.module.designsystem.support.extensions.collectAsEffect
+import leegroup.module.designsystem.ui.models.BaseDestination
 import leegroup.module.photosample.ui.models.PhotoDetailUiModel
 import leegroup.module.photosample.ui.screens.components.ThumbnailImage
 import leegroup.module.photosample.ui.screens.main.photodetail.components.PhotoDetailAppBar
@@ -82,7 +81,7 @@ internal fun PhotoDetailContent(
 @Preview(showBackground = true)
 @Composable
 private fun PhotoDetailContentPreview() {
-    ComposeTheme {
+    leegroup.module.designsystem.theme.ComposeTheme {
         PhotoDetailContent(
             modifier = Modifier
                 .fillMaxSize()

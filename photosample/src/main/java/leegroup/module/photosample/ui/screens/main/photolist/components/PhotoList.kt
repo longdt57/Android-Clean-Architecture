@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import kotlinx.collections.immutable.ImmutableList
-import leegroup.module.compose.ui.components.LoadMore
+import leegroup.module.designsystem.components.LoadMore
 import leegroup.module.photosample.ui.models.PhotoUiModel
 
 @Composable

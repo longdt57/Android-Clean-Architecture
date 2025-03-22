@@ -13,7 +13,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import leegroup.module.compose.ui.theme.YellowSoft300
 import leegroup.module.photosample.R
 
 @Composable
@@ -27,7 +26,7 @@ internal fun FavoriteIcon(
         contentDescription = if (isFavorite) stringResource(R.string.remove_from_favorites) else stringResource(
             R.string.add_to_favorites
         ),
-        tint = if (isFavorite) YellowSoft300 else Color.Gray,
+        tint = if (isFavorite) leegroup.module.designsystem.theme.YellowSoft300 else Color.Gray,
         modifier = modifier
             .clip(RoundedCornerShape(8.dp))
             .clickable {

@@ -14,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import leegroup.module.compose.ui.theme.ComposeTheme
 import leegroup.module.sample.gituser.ui.components.AppHorizontalDivider
 import leegroup.module.sample.gituser.ui.components.LinkText
 import leegroup.module.sample.gituser.ui.components.UserAvatar
@@ -50,7 +49,7 @@ private fun GitUserTitle(modifier: Modifier, title: String) {
 @Preview(showBackground = true)
 @Composable
 private fun GitUserContentPreview() {
-    ComposeTheme {
+    leegroup.module.designsystem.theme.ComposeTheme {
         GitUserListItem(
             modifier = Modifier.padding(8.dp),
             title = "longdt57",

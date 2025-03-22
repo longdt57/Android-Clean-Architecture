@@ -7,10 +7,10 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import leegroup.module.compose.support.util.DispatchersProvider
-import leegroup.module.compose.support.util.SavedStateProvider
-import leegroup.module.compose.ui.models.ErrorState
-import leegroup.module.compose.ui.viewmodel.StateViewModel
+import leegroup.module.designsystem.support.util.DispatchersProvider
+import leegroup.module.designsystem.support.util.SavedStateProvider
+import leegroup.module.designsystem.ui.models.ErrorState
+import leegroup.module.designsystem.ui.viewmodel.StateViewModel
 import leegroup.module.sample.gituser.domain.models.GitUserDetailModel
 import leegroup.module.sample.gituser.domain.usecases.gituser.GetGitUserDetailLocalUseCase
 import leegroup.module.sample.gituser.domain.usecases.gituser.GetGitUserDetailRemoteUseCase

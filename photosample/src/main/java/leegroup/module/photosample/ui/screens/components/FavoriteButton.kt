@@ -14,7 +14,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import leegroup.module.compose.ui.theme.YellowSoft300
 import leegroup.module.photosample.R
 
 @Composable
@@ -33,7 +32,7 @@ internal fun FavoriteButton(
             imageVector = if (isFavorite) Icons.Filled.Star else Icons.Outlined.Star,
             contentDescription = if (isFavorite) stringResource(R.string.remove_from_favorites) else
                 stringResource(R.string.add_to_favorites),
-            tint = if (isFavorite) YellowSoft300 else Color.Gray,
+            tint = if (isFavorite) leegroup.module.designsystem.theme.YellowSoft300 else Color.Gray,
         )
     }
 }

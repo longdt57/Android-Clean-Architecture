@@ -9,7 +9,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import leegroup.module.compose.ui.theme.ComposeTheme
 import leegroup.module.sample.gituser.R
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -29,7 +28,7 @@ internal fun GitUserListAppBar(modifier: Modifier = Modifier) {
 @Preview(showSystemUi = true)
 @Composable
 private fun ScreenPreview() {
-    ComposeTheme {
+    leegroup.module.designsystem.theme.ComposeTheme {
         GitUserListAppBar()
     }
 }

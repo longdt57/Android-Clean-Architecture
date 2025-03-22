@@ -16,10 +16,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
-import leegroup.module.compose.support.extensions.collectAsEffect
-import leegroup.module.compose.ui.components.BaseScreen
-import leegroup.module.compose.ui.models.LoadingState
-import leegroup.module.compose.ui.theme.ComposeTheme
+import leegroup.module.designsystem.components.BaseScreen
+import leegroup.module.designsystem.support.extensions.collectAsEffect
+import leegroup.module.designsystem.ui.models.LoadingState
 import leegroup.module.sample.gituser.domain.models.GitUserModel
 import leegroup.module.sample.gituser.ui.screens.GitUserDestination
 import leegroup.module.sample.gituser.ui.screens.gituser.components.GitUserList
@@ -102,7 +101,7 @@ private fun GitUserListScreenContent(
 @Preview(showSystemUi = true)
 @Composable
 private fun ScreenEmptyPreview() {
-    ComposeTheme {
+    leegroup.module.designsystem.theme.ComposeTheme {
         GitUserListScreenContent(
             showRefresh = true,
             users = persistentListOf(),
@@ -116,7 +115,7 @@ private fun ScreenEmptyPreview() {
 @Preview(showSystemUi = true)
 @Composable
 private fun ScreenPreview() {
-    ComposeTheme {
+    leegroup.module.designsystem.theme.ComposeTheme {
         GitUserListScreenContent(
             showRefresh = false,
             users = persistentListOf(

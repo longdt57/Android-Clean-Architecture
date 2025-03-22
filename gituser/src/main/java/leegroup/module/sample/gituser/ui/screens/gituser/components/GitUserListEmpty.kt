@@ -10,8 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import leegroup.module.compose.R
-import leegroup.module.compose.ui.theme.ComposeTheme
+import leegroup.module.designsystem.R
 
 @Composable
 internal fun GitUserListEmpty(modifier: Modifier = Modifier, onRefresh: () -> Unit) {
@@ -28,7 +27,7 @@ internal fun GitUserListEmpty(modifier: Modifier = Modifier, onRefresh: () -> Un
 @Preview(showSystemUi = true)
 @Composable
 fun GitUserListEmptyPreview() {
-    ComposeTheme {
+    leegroup.module.designsystem.theme.ComposeTheme {
         GitUserListEmpty(modifier = Modifier.fillMaxSize()) {}
     }
 }

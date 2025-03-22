@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import leegroup.module.compose.di.RetrofitProvider
+import leegroup.module.designsystem.di.RetrofitProvider
 import leegroup.module.photosample.BuildConfig
 import leegroup.module.photosample.data.remote.services.PhotoApiService
 import retrofit2.Retrofit

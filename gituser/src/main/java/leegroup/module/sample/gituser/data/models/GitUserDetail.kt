@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import leegroup.module.compose.support.extensions.orZero
+import leegroup.module.designsystem.support.extensions.orZero
 import leegroup.module.sample.gituser.domain.models.GitUserDetailModel
 
 @Entity

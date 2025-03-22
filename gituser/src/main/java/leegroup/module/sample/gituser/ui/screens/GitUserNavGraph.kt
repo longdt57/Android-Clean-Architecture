@@ -10,8 +10,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import leegroup.module.compose.support.extensions.appNavigate
-import leegroup.module.compose.support.extensions.composable
+import leegroup.module.designsystem.support.extensions.appNavigate
+import leegroup.module.designsystem.support.extensions.composable
 import leegroup.module.sample.gituser.ui.screens.gituser.GitUserListScreen
 import leegroup.module.sample.gituser.ui.screens.gituserdetail.GitUserDetailScreen
 
