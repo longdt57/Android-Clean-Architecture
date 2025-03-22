@@ -1,4 +1,4 @@
-package leegroup.module.designsystem.data.datastore
+package leegroup.module.data.datastore
 
 import android.content.Context
 import androidx.datastore.core.DataStore

@@ -2,17 +2,11 @@ package leegroup.module.photosample.data.local.room
 
 import androidx.room.Dao
 import androidx.room.Query
-import androidx.room.Upsert
+import leegroup.module.data.database.dao.BaseDao
 import leegroup.module.photosample.data.local.room.entities.PhotoEntity
 
 @Dao
-internal interface PhotoDao {
-
-    @Upsert
-    suspend fun upsert(users: PhotoEntity)
-
-    @Upsert
-    suspend fun upsert(users: List<PhotoEntity>)
+internal interface PhotoDao : BaseDao<PhotoEntity> {
 
     @Query(
         """

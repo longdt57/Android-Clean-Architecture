@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
-import leegroup.module.designsystem.data.datastore.BaseDataStore
+import leegroup.module.data.datastore.BaseDataStore
 import javax.inject.Inject
 import javax.inject.Singleton
 

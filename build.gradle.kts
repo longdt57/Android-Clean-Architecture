@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
-    alias(libs.plugins.gradle.versions)
-    alias(libs.plugins.version.catalog.update)
+//    alias(libs.plugins.gradle.versions)
+//    alias(libs.plugins.version.catalog.update)
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.jetbrains.kotlin.android) apply false
     alias(libs.plugins.google.dagger.hilt) apply false
@@ -14,8 +14,6 @@ plugins {
     id("io.gitlab.arturbosch.detekt") version libs.versions.detektVersion.get()
 }
 
-apply("${project.rootDir}/buildscripts/toml-updater-config.gradle")
-
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
 }
@@ -25,9 +23,9 @@ detekt {
 
     source = files(
         "app/src/main/java",
-        "compose/src/main/java",
+        "core/designsystem/src/main/java",
+        "core/data/src/main/java",
         "gituser/src/main/java",
-        "note/src/main/java",
         "photosample/src/main/java",
         "sample/src/main/java",
         "test/src/main/java"

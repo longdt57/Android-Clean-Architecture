@@ -35,7 +35,7 @@ class GitUserDetailRepositoryTest {
     fun `When request successful, it returns success`() = runTest {
         val expected = gitUserDetail
         coEvery { mockService.getGitUserDetail(login) } returns expected
-        coEvery { mockUserDao.upsert(expected) } returns Unit
+        coEvery { mockUserDao.upsert(expected) } returns expected.id
 
         repository.getRemote(login) shouldBe gitUserDetailModel
         coVerify(exactly = 1) { mockUserDao.upsert(expected) }

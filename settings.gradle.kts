@@ -22,3 +22,4 @@ include(":sample")
 
 include(":core:designsystem")
 include(":test")
+include(":core:data")

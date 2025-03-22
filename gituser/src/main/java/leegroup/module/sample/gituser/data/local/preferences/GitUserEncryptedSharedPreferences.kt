@@ -2,7 +2,7 @@ package leegroup.module.sample.gituser.data.local.preferences
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
-import leegroup.module.designsystem.data.sharepreference.BaseEncryptedSharedPreferences
+import leegroup.module.data.sharepreference.BaseEncryptedSharedPreferences
 import javax.inject.Inject
 import javax.inject.Singleton
 

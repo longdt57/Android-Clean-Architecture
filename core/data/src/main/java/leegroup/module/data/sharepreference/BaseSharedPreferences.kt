@@ -1,4 +1,4 @@
-package leegroup.module.designsystem.data.sharepreference
+package leegroup.module.data.sharepreference
 
 import android.content.Context
 import android.content.SharedPreferences

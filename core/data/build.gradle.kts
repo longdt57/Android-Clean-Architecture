@@ -2,13 +2,13 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.serialization)
-    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.google.devtools.ksp)
     alias(libs.plugins.kotlinx.kover)
     id("maven-publish")
 }
 
 android {
-    namespace = "leegroup.module.designsystem"
+    namespace = "leegroup.module.data"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
@@ -35,10 +35,6 @@ android {
     }
     buildFeatures {
         buildConfig = true
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.composeExtensionVersion.get()
     }
     lint {
         checkDependencies = true
@@ -49,19 +45,11 @@ android {
 
 dependencies {
 
-    // Lifecycle
-    implementation(libs.bundles.androidx.lifecycle)
-
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.navigation.compose)
-    implementation(libs.androidx.work.runtime.ktx)
+
+    // Data
+    implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.security.crypto)
 
     // Coroutines
     implementation(libs.kotlin.coroutines.core)
@@ -73,19 +61,20 @@ dependencies {
     // Serialization
     implementation(libs.kotlinx.serialization.json)
 
-    // Retrofit
-    implementation(libs.bundles.networking)
+    // Room
+    implementation(libs.room.runtime)
+    annotationProcessor(libs.room.compiler)
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)
 
     testImplementation(libs.bundles.test)
-    testImplementation(libs.androidx.ui.test.junit4)
-    testImplementation(platform(libs.androidx.compose.bom))
 }
 
 publishing {
     publications {
         register<MavenPublication>("release") {
             groupId = "leegroup.module"
-            artifactId = "designsystem"
+            artifactId = "data"
             version = "1.0"
 
             afterEvaluate {

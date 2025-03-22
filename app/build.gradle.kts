@@ -120,12 +120,23 @@ android {
             isIncludeAndroidResources = true
         }
     }
+    packaging.resources {
+        // The Rome library JARs embed some internal utils libraries in nested JARs.
+        // We don't need them so we exclude them in the final package.
+        excludes += "/*.jar"
+
+        // Multiple dependency bring these files in. Exclude them to enable
+        // our test APK to build (has no effect on our AARs)
+        excludes += "/META-INF/AL2.0"
+        excludes += "/META-INF/LGPL2.1"
+    }
 }
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     implementation(project(":core:designsystem"))
+    implementation(project(":core:data"))
     implementation(project(":gituser"))
     implementation(project(":photosample"))
     implementation(project(":sample"))
@@ -201,9 +212,9 @@ dependencies {
 
 dependencies {
     kover(project(":core:designsystem"))
+    kover(project(":core:data"))
     kover(project(":gituser"))
     kover(project(":photosample"))
-    kover(project(":sample"))
 }
 
 kover {
