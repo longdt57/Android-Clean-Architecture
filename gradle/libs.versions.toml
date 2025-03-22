@@ -24,10 +24,11 @@ crashlytic = "3.0.3"
 datastorePreferences = "1.1.3"
 detektVersion = "1.23.0"
 espressoCore = "3.6.1"
-firebaseBom = "33.10.0"
+firebaseBom = "33.11.0"
 firebasePref = "1.4.2"
-firebaseFirestore = "25.1.2"
+firebaseFirestore = "25.1.3"
 googleService = "4.4.2"
+gradle-versions = "0.52.0"
 hiltAndroid = "2.55"
 hiltNavigationCompose = "1.2.0"
 junit = "4.13.2"
@@ -37,7 +38,7 @@ kotlin = "2.1.10"
 kotlinxCollectionsImmutable = "0.3.8"
 kotlinxSerializationJson = "1.8.0"
 kover = "0.9.1"
-ksp = "2.1.0-1.0.29"
+ksp = "2.1.10-1.0.30"
 lifecycleRuntimeKtx = "2.8.7"
 leakcanary = "2.14"
 mockk = "1.13.16"
@@ -48,6 +49,7 @@ retrofit = "2.11.0"
 retrofit2KotlinxSerializationConverter = "1.0.0"
 robolectric = "4.14.1"
 room = "2.6.1"
+version-catalog-update = "0.8.5"
 securityCrypto = "1.0.0"
 timber = "5.0.1"
 turbine = "1.2.0"
@@ -146,6 +148,7 @@ test = ["junit", "androidx-core", "turbine", "kotest-assertions-core", "room-tes
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 google-dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }
 google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
@@ -155,3 +158,5 @@ firebase-pref = { id = "com.google.firebase.firebase-perf", version.ref = "fireb
 firebase-app-distribution = { id = "com.google.firebase.appdistribution", version.ref = "appDistribution" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 kotlinx-kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
+gradle-versions = { id = "com.github.ben-manes.versions", version.ref = "gradle-versions" }
+version-catalog-update = { id = "nl.littlerobots.version-catalog-update", version.ref = "version-catalog-update" }
