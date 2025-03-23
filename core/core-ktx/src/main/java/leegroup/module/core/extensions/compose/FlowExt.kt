@@ -1,4 +1,4 @@
-package leegroup.module.designsystem.support.extensions
+package leegroup.module.core.extensions.compose
 
 import android.annotation.SuppressLint
 import androidx.compose.runtime.Composable

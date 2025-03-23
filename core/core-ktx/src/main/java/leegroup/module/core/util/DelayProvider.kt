@@ -1,4 +1,4 @@
-package leegroup.module.designsystem.support.util
+package leegroup.module.core.util
 
 interface DelayProvider {
     suspend fun delay(timeMillis: Long)

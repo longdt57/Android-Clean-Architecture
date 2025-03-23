@@ -55,22 +55,11 @@ dependencies {
     implementation(libs.bundles.androidx.lifecycle)
 
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.navigation.compose)
-    implementation(libs.androidx.work.runtime.ktx)
-
-    // Coroutines
-    implementation(libs.kotlin.coroutines.core)
-    implementation(libs.kotlin.coroutines.android)
-
-    // ImmutableList
-    implementation(libs.kotlinx.collections.immutable)
 
     // Serialization
     implementation(libs.kotlinx.serialization.json)

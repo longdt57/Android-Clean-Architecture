@@ -15,7 +15,7 @@ private const val APP_DATABASE = "git-user-database"
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal class RoomModule {
+internal class GitUserRoomModule {
 
     @Provides
     fun provideGitUserRoom(@ApplicationContext applicationContext: Context): GitUserDatabase {

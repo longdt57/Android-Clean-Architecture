@@ -1,4 +1,4 @@
-package leegroup.module.designsystem.support.extensions
+package leegroup.module.core.extensions
 
 fun <T> List<T>.updateItemInList(
     updatedItem: T,

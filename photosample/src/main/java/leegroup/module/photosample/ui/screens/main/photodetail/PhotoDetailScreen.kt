@@ -19,8 +19,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import leegroup.module.core.extensions.compose.collectAsEffect
 import leegroup.module.designsystem.components.BaseScreen
-import leegroup.module.designsystem.support.extensions.collectAsEffect
 import leegroup.module.designsystem.ui.models.BaseDestination
 import leegroup.module.photosample.ui.models.PhotoDetailUiModel
 import leegroup.module.photosample.ui.screens.components.ThumbnailImage

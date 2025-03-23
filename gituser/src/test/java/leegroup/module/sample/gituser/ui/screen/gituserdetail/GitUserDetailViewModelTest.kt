@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import leegroup.module.core.util.JsonUtil
-import leegroup.module.designsystem.support.util.SavedStateProvider
+import leegroup.module.core.util.SavedStateProvider
 import leegroup.module.designsystem.ui.models.ErrorState
 import leegroup.module.sample.gituser.MockUtil
 import leegroup.module.sample.gituser.domain.models.GitUserDetailModel

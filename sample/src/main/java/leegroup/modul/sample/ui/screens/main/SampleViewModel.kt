@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.onEach
 import leegroup.modul.sample.data.models.SampleModel
 import leegroup.modul.sample.domain.usecases.SampleUseCase
 import leegroup.modul.sample.ui.models.SampleUiState
-import leegroup.module.designsystem.support.util.DispatchersProvider
+import leegroup.module.core.util.DispatchersProvider
 import leegroup.module.designsystem.ui.viewmodel.StateViewModel
 import javax.inject.Inject
 

@@ -124,6 +124,7 @@ android {
 dependencies {
     implementation(projects.core.designsystem)
     implementation(projects.core.data)
+    implementation(projects.core.coreKtx)
     implementation(projects.gituser)
     implementation(projects.photosample)
     implementation(projects.sample)

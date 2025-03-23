@@ -1,4 +1,4 @@
-package leegroup.module.designsystem.support.extensions
+package leegroup.module.core.extensions
 
 import java.text.NumberFormat
 import java.util.Locale

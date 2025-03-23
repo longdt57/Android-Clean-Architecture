@@ -7,7 +7,7 @@ import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
 import leegroup.module.core.util.JsonUtil
-import leegroup.module.designsystem.support.util.SavedStateProvider
+import leegroup.module.core.util.SavedStateProvider
 import leegroup.module.photosample.domain.params.SaveFavoriteParam
 import leegroup.module.photosample.domain.usecases.photofavorite.SaveFavoriteUseCase
 import leegroup.module.photosample.ui.screens.main.PhotoDetailNav

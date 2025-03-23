@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.serialization)
     alias(libs.plugins.kotlinx.kover)
+    alias(libs.plugins.compose)
     id("maven-publish")
 }
 
@@ -34,6 +35,7 @@ android {
     }
     buildFeatures {
         buildConfig = true
+        compose = true
     }
     lint {
         checkDependencies = true
@@ -43,11 +45,13 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
 
-    // Coroutines
-    implementation(libs.kotlin.coroutines.core)
-    implementation(libs.kotlin.coroutines.android)
+    // Lifecycle
+    implementation(libs.bundles.androidx.lifecycle)
+
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.material3)
 
     // Serialization
     implementation(libs.kotlinx.serialization.json)

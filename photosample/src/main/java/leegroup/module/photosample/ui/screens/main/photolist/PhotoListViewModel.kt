@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.launch
 import leegroup.module.core.extensions.orFalse
 import leegroup.module.core.extensions.orZero
-import leegroup.module.designsystem.support.util.DispatchersProvider
+import leegroup.module.core.util.DispatchersProvider
 import leegroup.module.designsystem.ui.models.ErrorState
 import leegroup.module.designsystem.ui.viewmodel.StateViewModel
 import leegroup.module.photosample.domain.models.PhotoModelD

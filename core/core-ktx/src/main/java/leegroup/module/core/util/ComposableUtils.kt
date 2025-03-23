@@ -1,4 +1,4 @@
-package leegroup.module.designsystem.support.util
+package leegroup.module.core.util
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider

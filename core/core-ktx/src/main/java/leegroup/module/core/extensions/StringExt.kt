@@ -1,14 +1,11 @@
-package leegroup.module.designsystem.support.extensions
+package leegroup.module.core.extensions
 
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.core.graphics.toColorInt
 
 fun String.hexToColor(): Color {
     return Color(toColorInt())
 }
-
-fun randomString(words: Int): String = LoremIpsum(words).values.joinToString()
 
 @Suppress("MagicNumber")
 fun String?.appVersionToInt(): Int {

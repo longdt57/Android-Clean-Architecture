@@ -10,9 +10,9 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import leegroup.modul.sample.ui.models.SampleUiState
+import leegroup.module.core.extensions.compose.collectAsEffect
 import leegroup.module.designsystem.components.BaseScreen
 import leegroup.module.designsystem.components.CenterTopAppBar
-import leegroup.module.designsystem.support.extensions.collectAsEffect
 import leegroup.module.designsystem.ui.models.BaseDestination
 
 @Composable

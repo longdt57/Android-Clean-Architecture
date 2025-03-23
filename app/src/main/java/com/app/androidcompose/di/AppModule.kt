@@ -6,8 +6,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import leegroup.module.designsystem.support.util.DispatchersProvider
-import leegroup.module.designsystem.support.util.DispatchersProviderImpl
+import leegroup.module.core.util.DispatchersProvider
+import leegroup.module.core.util.DispatchersProviderImpl
 
 @Module
 @InstallIn(SingletonComponent::class)

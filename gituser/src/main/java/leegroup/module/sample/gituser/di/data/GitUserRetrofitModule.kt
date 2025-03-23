@@ -12,7 +12,7 @@ import javax.inject.Qualifier
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal class RetrofitModule {
+internal class GitUserRetrofitModule {
 
     @Qualifier
     @Retention(AnnotationRetention.BINARY)

@@ -1,4 +1,4 @@
-package leegroup.module.designsystem.support.extensions
+package leegroup.module.core.extensions.compose
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween

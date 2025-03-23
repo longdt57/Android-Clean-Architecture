@@ -13,7 +13,7 @@ import leegroup.module.photosample.domain.repositories.PhotoListRepository
 
 @Module
 @InstallIn(ViewModelComponent::class)
-internal interface RepositoryModule {
+internal interface PhotoRepositoryModule {
 
     @Binds
     fun bindPhotoListRepository(repository: PhotoListRepositoryImpl): PhotoListRepository

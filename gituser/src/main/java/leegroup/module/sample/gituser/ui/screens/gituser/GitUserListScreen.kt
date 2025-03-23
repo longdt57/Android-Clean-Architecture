@@ -16,8 +16,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
+import leegroup.module.core.extensions.compose.collectAsEffect
 import leegroup.module.designsystem.components.BaseScreen
-import leegroup.module.designsystem.support.extensions.collectAsEffect
 import leegroup.module.designsystem.ui.models.LoadingState
 import leegroup.module.sample.gituser.domain.models.GitUserModel
 import leegroup.module.sample.gituser.ui.screens.GitUserDestination

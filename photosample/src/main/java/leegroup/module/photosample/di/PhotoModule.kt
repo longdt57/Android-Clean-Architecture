@@ -6,7 +6,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import leegroup.module.designsystem.support.util.SavedStateProvider
+import leegroup.module.core.util.SavedStateProvider
 import leegroup.module.photosample.ui.screens.main.PhotoDetailNav
 
 @Module

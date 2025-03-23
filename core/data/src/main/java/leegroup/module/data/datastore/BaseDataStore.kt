@@ -8,7 +8,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStoreFile
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlinx.serialization.json.Json
+import leegroup.module.core.util.JsonUtil
 
 abstract class BaseDataStore(
     context: Context,
@@ -34,13 +34,13 @@ abstract class BaseDataStore(
     protected fun <T> getListValue(key: Preferences.Key<String>): Flow<List<T>> {
         return dataStore.data.map { preferences ->
             val value = preferences[key] ?: return@map emptyList()
-            Json.decodeFromString<List<T>>(value)
+            JsonUtil.decodeFromString<List<T>>(value).orEmpty()
         }
     }
 
     protected suspend fun <T> setValue(key: Preferences.Key<String>, value: List<T>) {
         dataStore.edit { settings ->
-            val jsonValue = Json.encodeToString(value)
+            val jsonValue = JsonUtil.encodeToString(value)
             settings[key] = jsonValue
         }
     }

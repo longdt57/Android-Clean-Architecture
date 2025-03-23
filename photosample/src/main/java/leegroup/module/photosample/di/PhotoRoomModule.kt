@@ -14,7 +14,7 @@ private const val APP_DATABASE = "photo-database"
 
 @Module
 @InstallIn(SingletonComponent::class)
-internal class RoomModule {
+internal class PhotoRoomModule {
 
     @Provides
     fun providePhotoRoom(@ApplicationContext applicationContext: Context): PhotoDatabase {

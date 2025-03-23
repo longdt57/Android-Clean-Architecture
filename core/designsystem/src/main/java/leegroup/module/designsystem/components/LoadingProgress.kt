@@ -11,8 +11,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import leegroup.module.core.extensions.compose.stringResourceOrNull
 import leegroup.module.designsystem.R
-import leegroup.module.designsystem.support.extensions.stringResourceOrNull
 import leegroup.module.designsystem.ui.models.LoadingState
 
 @Composable

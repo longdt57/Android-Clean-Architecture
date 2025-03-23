@@ -7,7 +7,7 @@ import kotlinx.coroutines.test.TestDispatcher
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
-import leegroup.module.designsystem.support.util.DispatchersProvider
+import leegroup.module.core.util.DispatchersProvider
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
 

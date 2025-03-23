@@ -45,18 +45,11 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
+    implementation(projects.core.coreKtx)
 
     // Data
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.androidx.security.crypto)
-
-    // Coroutines
-    implementation(libs.kotlin.coroutines.core)
-    implementation(libs.kotlin.coroutines.android)
-
-    // ImmutableList
-    implementation(libs.kotlinx.collections.immutable)
 
     // Serialization
     implementation(libs.kotlinx.serialization.json)
