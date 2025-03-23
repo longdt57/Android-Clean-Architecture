@@ -32,9 +32,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+        vectorDrawables.useSupportLibrary = true
     }
 
     signingConfigs {
@@ -115,11 +113,6 @@ android {
         xmlOutput = file("build/reports/lint/lint-result.xml")
     }
 
-    testOptions {
-        unitTests {
-            isIncludeAndroidResources = true
-        }
-    }
     packaging.resources {
         // Multiple dependency bring these files in. Exclude them to enable
         // our test APK to build (has no effect on our AARs)
@@ -158,10 +151,9 @@ dependencies {
     implementation(libs.androidx.datastore.preferences)
 
     // Coroutines
+    implementation(libs.kotlin.stdlib)
     implementation(libs.kotlin.coroutines.core)
     implementation(libs.kotlin.coroutines.android)
-
-    // ImmutableList
     implementation(libs.kotlinx.collections.immutable)
 
     // Hilt
