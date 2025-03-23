@@ -6,7 +6,7 @@ plugins {
     alias(libs.plugins.google.dagger.hilt)
     alias(libs.plugins.google.devtools.ksp)
     alias(libs.plugins.serialization)
-    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.compose)
     alias(libs.plugins.google.service)
     alias(libs.plugins.firebase.crashlytics)
     alias(libs.plugins.firebase.pref)
@@ -121,10 +121,6 @@ android {
         }
     }
     packaging.resources {
-        // The Rome library JARs embed some internal utils libraries in nested JARs.
-        // We don't need them so we exclude them in the final package.
-        excludes += "/*.jar"
-
         // Multiple dependency bring these files in. Exclude them to enable
         // our test APK to build (has no effect on our AARs)
         excludes += "/META-INF/AL2.0"
@@ -133,13 +129,11 @@ android {
 }
 
 dependencies {
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-
-    implementation(project(":core:designsystem"))
-    implementation(project(":core:data"))
-    implementation(project(":gituser"))
-    implementation(project(":photosample"))
-    implementation(project(":sample"))
+    implementation(projects.core.designsystem)
+    implementation(projects.core.data)
+    implementation(projects.gituser)
+    implementation(projects.photosample)
+    implementation(projects.sample)
 
     // Lifecycle
     implementation(libs.bundles.androidx.lifecycle)
@@ -198,7 +192,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    testImplementation(project(":test"))
+    testImplementation(projects.test)
     testImplementation(libs.bundles.test)
     testImplementation(libs.androidx.ui.test.junit4)
     testImplementation(platform(libs.androidx.compose.bom))
@@ -211,10 +205,10 @@ dependencies {
 }
 
 dependencies {
-    kover(project(":core:designsystem"))
-    kover(project(":core:data"))
-    kover(project(":gituser"))
-    kover(project(":photosample"))
+    kover(projects.core.designsystem)
+    kover(projects.core.data)
+    kover(projects.gituser)
+    kover(projects.photosample)
 }
 
 kover {

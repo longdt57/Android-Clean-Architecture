@@ -14,12 +14,13 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Compose Sample"
+rootProject.name = "Compose"
 include(":app")
 include(":gituser")
 include(":photosample")
 include(":sample")
 
 include(":core:designsystem")
-include(":test")
 include(":core:data")
+include(":test")
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")

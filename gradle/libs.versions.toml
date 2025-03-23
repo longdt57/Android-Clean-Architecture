@@ -1,61 +1,78 @@
 [versions]
-minSdk = "24"
-targetSdk = "35"
-compileSdk = "35"
-composeExtensionVersion = "1.5.4"
 
-debug = "debug"
-release = "release"
-prod = "prod"
-staging = "staging"
-
-androidTracking = "1.0.9"
 activityCompose = "1.10.1"
 agp = "8.7.3"
+androidTracking = "1.0.9"
+appcompat = "1.7.0"
 appDistribution = "5.1.1"
+
 chucker = "4.0.0"
 coil = "2.7.0"
 composeBom = "2025.03.00"
+compileSdk = "35"
+composeExtensionVersion = "1.5.4"
 core = "1.6.1"
 coreKtx = "1.15.0"
 coroutineTest = "1.10.1"
 coroutines = "1.10.1"
 crashlytic = "3.0.3"
+
 datastorePreferences = "1.1.3"
+debug = "debug"
 detektVersion = "1.23.0"
+
 espressoCore = "3.6.1"
+
 firebaseBom = "33.11.0"
 firebasePref = "1.4.2"
 firebaseFirestore = "25.1.3"
+
 googleService = "4.4.2"
 gradle-versions = "0.52.0"
+
 hiltAndroid = "2.55"
 hiltNavigationCompose = "1.2.0"
+
 junit = "4.13.2"
 junitVersion = "1.2.1"
+
 kotestAssertionsCore = "5.9.1"
 kotlin = "2.1.10"
 kotlinxCollectionsImmutable = "0.3.8"
 kotlinxSerializationJson = "1.8.0"
 kover = "0.9.1"
 ksp = "2.1.10-1.0.30"
+
 lifecycleRuntimeKtx = "2.8.7"
 leakcanary = "2.14"
-mockk = "1.13.16"
+
+material = "1.12.0"
 material3Adaptive = "1.1.0"
+minSdk = "24"
+mockk = "1.13.16"
+
 navigationCompose = "2.8.9"
+
 okhttp = "4.12.0"
+
+prod = "prod"
+
+release = "release"
 retrofit = "2.11.0"
 retrofit2KotlinxSerializationConverter = "1.0.0"
 robolectric = "4.14.1"
 room = "2.6.1"
+
 version-catalog-update = "0.8.5"
+
 securityCrypto = "1.0.0"
+staging = "staging"
+
+targetSdk = "35"
 timber = "5.0.1"
 turbine = "1.2.0"
+
 workRuntimeKtx = "2.10.0"
-appcompat = "1.7.0"
-material = "1.10.0"
 
 [libraries]
 android-tracking = { module = "com.github.longdt57:Android-Tracking", version.ref = "androidTracking" }
@@ -155,7 +172,7 @@ serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref 
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 google-dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }
 google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 google-service = { id = "com.google.gms.google-services", version.ref = "googleService" }
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "crashlytic" }
 firebase-pref = { id = "com.google.firebase.firebase-perf", version.ref = "firebasePref" }

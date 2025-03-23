@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.google.dagger.hilt)
     alias(libs.plugins.google.devtools.ksp)
     alias(libs.plugins.serialization)
-    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.compose)
     alias(libs.plugins.kotlinx.kover)
 }
 
@@ -57,7 +57,7 @@ android {
 
 dependencies {
 
-    implementation(project(":core:designsystem"))
+    implementation(projects.core.designsystem)
 
     // Lifecycle
     implementation(libs.bundles.androidx.lifecycle)
@@ -112,7 +112,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    testImplementation(project(":test"))
+    testImplementation(projects.test)
     testImplementation(libs.bundles.test)
     testImplementation(libs.androidx.ui.test.junit4)
     testImplementation(platform(libs.androidx.compose.bom))
