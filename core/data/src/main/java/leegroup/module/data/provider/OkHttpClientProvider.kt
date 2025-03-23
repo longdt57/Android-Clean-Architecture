@@ -1,4 +1,4 @@
-package leegroup.module.designsystem.di
+package leegroup.module.data.provider
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

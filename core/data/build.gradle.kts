@@ -67,6 +67,9 @@ dependencies {
     ksp(libs.room.compiler)
     implementation(libs.room.ktx)
 
+    // Retrofit
+    implementation(libs.bundles.networking)
+
     testImplementation(libs.bundles.test)
 }
 
