@@ -58,6 +58,7 @@ android {
 dependencies {
 
     implementation(projects.core.designsystem)
+    implementation(projects.core.coreKtx)
 
     // Lifecycle
     implementation(libs.bundles.androidx.lifecycle)

@@ -60,6 +60,7 @@ dependencies {
 
     implementation(projects.core.designsystem)
     implementation(projects.core.data)
+    implementation(projects.core.coreKtx)
     implementation(libs.android.tracking)
 
     // Lifecycle

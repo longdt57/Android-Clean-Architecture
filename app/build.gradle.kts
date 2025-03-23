@@ -199,6 +199,7 @@ dependencies {
 dependencies {
     kover(projects.core.designsystem)
     kover(projects.core.data)
+    kover(projects.core.coreKtx)
     kover(projects.gituser)
     kover(projects.photosample)
 }

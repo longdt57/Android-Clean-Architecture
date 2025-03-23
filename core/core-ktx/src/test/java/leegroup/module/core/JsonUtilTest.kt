@@ -1,11 +1,11 @@
-package leegroup.module.designsystem
+package leegroup.module.core
 
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertNotNull
 import junit.framework.TestCase.assertNull
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import leegroup.module.designsystem.support.util.JsonUtil
+import leegroup.module.core.util.JsonUtil
 import org.junit.Test
 
 class JsonUtilTest {

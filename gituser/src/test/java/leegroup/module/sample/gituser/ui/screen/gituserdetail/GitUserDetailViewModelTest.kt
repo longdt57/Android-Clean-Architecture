@@ -11,7 +11,7 @@ import junit.framework.TestCase.assertTrue
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
-import leegroup.module.designsystem.support.util.JsonUtil
+import leegroup.module.core.util.JsonUtil
 import leegroup.module.designsystem.support.util.SavedStateProvider
 import leegroup.module.designsystem.ui.models.ErrorState
 import leegroup.module.sample.gituser.MockUtil

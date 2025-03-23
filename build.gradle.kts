@@ -25,6 +25,7 @@ detekt {
         "app/src/main/java",
         "core/designsystem/src/main/java",
         "core/data/src/main/java",
+        "core/core-ktx/src/main/java",
         "gituser/src/main/java",
         "photosample/src/main/java",
         "sample/src/main/java",

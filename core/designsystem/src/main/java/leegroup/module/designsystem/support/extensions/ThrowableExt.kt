@@ -1,6 +1,6 @@
 package leegroup.module.designsystem.support.extensions
 
-import leegroup.module.designsystem.support.util.JsonUtil
+import leegroup.module.core.util.JsonUtil
 import leegroup.module.designsystem.ui.models.ErrorModel
 import leegroup.module.designsystem.ui.models.ErrorState
 import retrofit2.HttpException

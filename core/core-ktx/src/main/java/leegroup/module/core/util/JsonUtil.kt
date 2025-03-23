@@ -1,4 +1,4 @@
-package leegroup.module.designsystem.support.util
+package leegroup.module.core.util
 
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.json.Json

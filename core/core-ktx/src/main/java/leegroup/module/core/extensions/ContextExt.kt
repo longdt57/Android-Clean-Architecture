@@ -1,4 +1,4 @@
-package leegroup.module.designsystem.support.extensions
+package leegroup.module.core.extensions
 
 import android.content.ActivityNotFoundException
 import android.content.Context
