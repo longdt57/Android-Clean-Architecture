@@ -76,5 +76,5 @@ object AppNotificationManager {
         }
     }
 
-    private const val CHANNEL_ID = "SnapEdit.notification"
+    private const val CHANNEL_ID = "Compose.notification"
 }
