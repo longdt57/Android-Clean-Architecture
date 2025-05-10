@@ -2,6 +2,7 @@ package leegroup.module.designsystem
 
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.test.runTest
 import leegroup.module.designsystem.support.extensions.mapApiError
 import leegroup.module.designsystem.ui.models.ErrorModel
 import leegroup.module.designsystem.ui.models.ErrorState
@@ -16,7 +17,7 @@ import javax.net.ssl.SSLException
 class MapApiErrorTest {
 
     @Test
-    fun `mapApiError returns Network ErrorState for network-related exceptions`() {
+    fun `mapApiError returns Network ErrorState for network-related exceptions`() = runTest {
         val networkExceptions = listOf(
             UnknownHostException(),
             SSLException("SSL error"),
@@ -30,14 +31,14 @@ class MapApiErrorTest {
     }
 
     @Test
-    fun `mapApiError returns Server ErrorState for ConnectException`() {
+    fun `mapApiError returns Server ErrorState for ConnectException`() = runTest {
         val exception = ConnectException()
         val result = exception.mapApiError<ErrorModel>()
         assertEquals(ErrorState.Server, result)
     }
 
     @Test
-    fun `mapApiError returns Api ErrorState for HttpException`() {
+    fun `mapApiError returns Api ErrorState for HttpException`() = runTest {
         val mockResponse: Response<Unit> = mockk()
         every { mockResponse.errorBody()?.string() } returns """{"message":"API error occurred"}"""
         every { mockResponse.code() } returns 400
@@ -51,7 +52,7 @@ class MapApiErrorTest {
     }
 
     @Test
-    fun `mapApiError returns Common ErrorState for other exceptions`() {
+    fun `mapApiError returns Common ErrorState for other exceptions`() = runTest {
         val exception = IllegalArgumentException("Some error")
         val result = exception.mapApiError<ErrorModel>()
         assertEquals(ErrorState.Common, result)
@@ -69,7 +70,8 @@ class MapApiErrorTest {
     }
 
     @Test
-    fun `mapApiError returns Api ErrorState with null error for HttpException with invalid body`() {
+    fun `mapApiError returns Api ErrorState with null error for HttpException with invalid body`() =
+        runTest {
 
         val httpException = MockUtil.apiErrorInvalidMessage
         val result = httpException.mapApiError<ErrorModel>()

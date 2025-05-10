@@ -129,7 +129,7 @@ class MockBaseViewModelTest {
 
 private class MockBaseViewModel : BaseViewModel() {
 
-    fun handleAction(action: Action) {
+    suspend fun handleAction(action: Action) {
         when (action) {
             is Action.ShowLoading -> showLoading()
             is Action.HideLoading -> hideLoading()

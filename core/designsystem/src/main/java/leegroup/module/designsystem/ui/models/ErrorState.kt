@@ -2,7 +2,7 @@ package leegroup.module.designsystem.ui.models
 
 import leegroup.module.designsystem.R
 
-sealed interface ErrorState {
+interface ErrorState {
     data object None : ErrorState
 
     interface MessageError : ErrorState {
