@@ -8,10 +8,12 @@ import kotlinx.serialization.json.jsonPrimitive
 
 object JsonUtil {
 
-    val json = Json {
-        ignoreUnknownKeys = true
-        explicitNulls = false
-    }
+    val json
+        get() = Json {
+            ignoreUnknownKeys = true
+            explicitNulls = false
+            isLenient = true
+        }
 
     inline fun <reified T> decodeFromString(value: String): T? {
         return try {

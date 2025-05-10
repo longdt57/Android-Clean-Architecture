@@ -41,9 +41,18 @@ abstract class BaseViewModel : ViewModel() {
         _loading.value = LoadingState.None
     }
 
-    protected open fun handleError(e: Throwable) {
+    protected open fun sendErrorState(
+        errorState: ErrorState
+    ) {
+        _error.tryEmit(errorState)
+    }
+
+    protected open suspend fun handleError(
+        e: Throwable,
+        action: (ErrorState) -> Unit = { sendErrorState(it) }
+    ) {
         val error = e.mapApiError<ErrorModel>()
-        _error.tryEmit(error)
+        action(error)
     }
 
     open fun onErrorConfirmation(errorState: ErrorState) {
@@ -54,7 +63,7 @@ abstract class BaseViewModel : ViewModel() {
         hideError()
     }
 
-    fun hideError() {
+    protected fun hideError() {
         _error.tryEmit(ErrorState.None)
     }
 

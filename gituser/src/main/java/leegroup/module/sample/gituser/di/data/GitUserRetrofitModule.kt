@@ -6,7 +6,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import leegroup.module.data.provider.RetrofitProvider
 import leegroup.module.sample.gituser.BuildConfig
-import leegroup.module.sample.gituser.data.remote.services.GitUserApiService
 import retrofit2.Retrofit
 import javax.inject.Qualifier
 
@@ -25,10 +24,5 @@ internal class GitUserRetrofitModule {
             isLoggingEnable = BuildConfig.DEBUG,
             baseUrl = BuildConfig.BASE_API_URL
         )
-    }
-
-    @Provides
-    fun provideService(@GitUserRetrofit retrofit: Retrofit): GitUserApiService {
-        return retrofit.create(GitUserApiService::class.java)
     }
 }
