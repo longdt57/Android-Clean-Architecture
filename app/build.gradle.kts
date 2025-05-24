@@ -78,9 +78,9 @@ android {
             applicationIdSuffix = ".staging"
 
             firebaseAppDistribution {
-                releaseNotes = "Test"
-                testers = "full@testers.com"
-                groups = "Beta, QA"
+                artifactType = "APK"
+                releaseNotesFile = "release_notes.txt"
+                groups = "firebase-testers"
             }
         }
 
