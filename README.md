@@ -49,3 +49,8 @@ For `release` builds, we need to provide release keystore and signing properties
 
 - Put the `release.keystore` file at root `config` folder.
 - Put keystore signing properties in `signing.properties`
+
+### Firebase
+
+- Add google-credentials-firebase-distribution.json to the the project
+- Gradlew: Run command `sh tools/app-distribution.sh` to upload the app to Firebase

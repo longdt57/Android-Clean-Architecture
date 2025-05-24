@@ -9,7 +9,7 @@ if [ -z "$FLAVOR" ]; then
   exit 1
 fi
 
-export GOOGLE_APPLICATION_CREDENTIALS=tools/google-credentials-firebase-distribution.json
+export GOOGLE_APPLICATION_CREDENTIALS=tools/firebase-distribution.json
 
 ## Create Version Code
 start_time=$(date -j -f "%d/%m/%Y %H:%M:%S" "21/06/2021 00:00:00" "+%s")
