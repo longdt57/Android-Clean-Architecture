@@ -3,29 +3,29 @@
 activityCompose = "1.10.1"
 agp = "8.7.3"
 androidTracking = "1.0.9"
-appcompat = "1.7.0"
+appcompat = "1.7.1"
 appDistribution = "5.1.1"
 
 chucker = "4.0.0"
 coil = "2.7.0"
-composeBom = "2025.03.00"
-compileSdk = "35"
+composeBom = "2025.06.00"
+compileSdk = "36"
 composeExtensionVersion = "1.5.4"
 core = "1.6.1"
-coreKtx = "1.15.0"
+coreKtx = "1.16.0"
 coroutineTest = "1.10.1"
 coroutines = "1.10.1"
-crashlytic = "3.0.3"
+crashlytic = "3.0.4"
 
-datastorePreferences = "1.1.3"
+datastorePreferences = "1.1.7"
 debug = "debug"
 detektVersion = "1.23.0"
 
 espressoCore = "3.6.1"
 
-firebaseBom = "33.11.0"
+firebaseBom = "33.15.0"
 firebasePref = "1.4.2"
-firebaseFirestore = "25.1.3"
+firebaseFirestore = "25.1.4"
 
 googleService = "4.4.2"
 gradle-versions = "0.52.0"
@@ -48,7 +48,7 @@ ktorClientCore = "3.1.2"
 ktorClientLogging = "3.1.2"
 ktorClientOkhttp = "3.1.2"
 ktorSerializationKotlinxJson = "3.1.2"
-lifecycleRuntimeKtx = "2.8.7"
+lifecycleRuntimeKtx = "2.9.1"
 leakcanary = "2.14"
 
 material = "1.12.0"
@@ -56,7 +56,7 @@ material3Adaptive = "1.1.0"
 minSdk = "24"
 mockk = "1.13.16"
 
-navigationCompose = "2.8.9"
+navigationCompose = "2.9.0"
 
 okhttp = "4.12.0"
 
@@ -66,7 +66,7 @@ release = "release"
 retrofit = "2.11.0"
 retrofit2KotlinxSerializationConverter = "1.0.0"
 robolectric = "4.14.1"
-room = "2.6.1"
+room = "2.7.1"
 
 version-catalog-update = "0.8.5"
 
@@ -77,7 +77,7 @@ targetSdk = "35"
 timber = "5.0.1"
 turbine = "1.2.0"
 
-workRuntimeKtx = "2.10.0"
+workRuntimeKtx = "2.10.1"
 
 [libraries]
 android-tracking = { module = "com.github.longdt57:Android-Tracking", version.ref = "androidTracking" }
