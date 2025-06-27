@@ -8,13 +8,13 @@ appDistribution = "5.1.1"
 
 chucker = "4.0.0"
 coil = "2.7.0"
-composeBom = "2025.06.00"
+composeBom = "2025.06.01"
 compileSdk = "36"
 composeExtensionVersion = "1.5.4"
 core = "1.6.1"
 coreKtx = "1.16.0"
-coroutineTest = "1.10.1"
-coroutines = "1.10.1"
+coroutineTest = "1.10.2"
+coroutines = "1.10.2"
 crashlytic = "3.0.4"
 
 datastorePreferences = "1.1.7"
@@ -23,11 +23,11 @@ detektVersion = "1.23.0"
 
 espressoCore = "3.6.1"
 
-firebaseBom = "33.15.0"
+firebaseBom = "33.16.0"
 firebasePref = "1.4.2"
 firebaseFirestore = "25.1.4"
 
-googleService = "4.4.2"
+googleService = "4.4.3"
 gradle-versions = "0.52.0"
 
 hiltAndroid = "2.55"
@@ -37,11 +37,11 @@ junit = "4.13.2"
 junitVersion = "1.2.1"
 
 kotestAssertionsCore = "5.9.1"
-kotlin = "2.1.10"
+kotlin = "2.1.21"
 kotlinxCollectionsImmutable = "0.3.8"
-kotlinxSerializationJson = "1.8.0"
+kotlinxSerializationJson = "1.8.1"
 kover = "0.9.1"
-ksp = "2.1.10-1.0.30"
+ksp = "2.1.21-2.0.2"
 
 ktorClientContentNegotiation = "3.1.2"
 ktorClientCore = "3.1.2"
@@ -54,7 +54,7 @@ leakcanary = "2.14"
 material = "1.12.0"
 material3Adaptive = "1.1.0"
 minSdk = "24"
-mockk = "1.13.16"
+mockk = "1.13.17"
 
 navigationCompose = "2.9.0"
 
@@ -66,18 +66,18 @@ release = "release"
 retrofit = "2.11.0"
 retrofit2KotlinxSerializationConverter = "1.0.0"
 robolectric = "4.14.1"
-room = "2.7.1"
+room = "2.7.2"
 
 version-catalog-update = "0.8.5"
 
 securityCrypto = "1.0.0"
 staging = "staging"
 
-targetSdk = "35"
+targetSdk = "36"
 timber = "5.0.1"
 turbine = "1.2.0"
 
-workRuntimeKtx = "2.10.1"
+workRuntimeKtx = "2.10.2"
 
 [libraries]
 android-tracking = { module = "com.github.longdt57:Android-Tracking", version.ref = "androidTracking" }
