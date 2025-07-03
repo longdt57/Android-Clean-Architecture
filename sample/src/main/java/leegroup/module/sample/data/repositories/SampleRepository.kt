@@ -1,7 +1,7 @@
-package leegroup.modul.sample.data.repositories
+package leegroup.module.sample.data.repositories
 
 import kotlinx.coroutines.flow.Flow
-import leegroup.modul.sample.data.models.SampleModel
+import leegroup.module.sample.data.models.SampleModel
 
 internal interface SampleRepository {
 

@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "leegroup.modul.sample"
+    namespace = "leegroup.module.sample"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

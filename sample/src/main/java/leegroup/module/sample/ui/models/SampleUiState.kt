@@ -1,7 +1,7 @@
-package leegroup.modul.sample.ui.models
+package leegroup.module.sample.ui.models
 
 import androidx.compose.runtime.Immutable
-import leegroup.modul.sample.data.models.SampleModel
+import leegroup.module.sample.data.models.SampleModel
 
 @Immutable
 internal data class SampleUiState(

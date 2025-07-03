@@ -1,4 +1,4 @@
-package leegroup.modul.sample.ui
+package leegroup.module.sample.ui
 
 import leegroup.module.designsystem.ui.models.BaseDestination
 

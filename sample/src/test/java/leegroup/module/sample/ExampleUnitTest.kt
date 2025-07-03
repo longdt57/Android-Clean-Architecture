@@ -1,4 +1,4 @@
-package leegroup.modul.sample
+package leegroup.module.sample
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

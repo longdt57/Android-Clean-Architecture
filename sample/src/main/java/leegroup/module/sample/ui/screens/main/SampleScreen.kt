@@ -1,4 +1,4 @@
-package leegroup.modul.sample.ui.screens.main
+package leegroup.module.sample.ui.screens.main
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -9,11 +9,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import leegroup.modul.sample.ui.models.SampleUiState
 import leegroup.module.core.extensions.compose.collectAsEffect
 import leegroup.module.designsystem.components.BaseScreen
 import leegroup.module.designsystem.components.CenterTopAppBar
 import leegroup.module.designsystem.ui.models.BaseDestination
+import leegroup.module.sample.ui.models.SampleUiState
 
 @Composable
 fun SampleScreen(

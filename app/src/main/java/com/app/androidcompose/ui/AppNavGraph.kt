@@ -6,11 +6,11 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.app.androidcompose.ui.screens.main.MainScreen
-import leegroup.modul.sample.ui.sampleNavGraph
 import leegroup.module.designsystem.support.extensions.appNavigate
 import leegroup.module.designsystem.support.extensions.launchSingleTopNavOptions
 import leegroup.module.photosample.ui.screens.main.photoNavGraph
 import leegroup.module.sample.gituser.ui.screens.gitUserNavGraph
+import leegroup.module.sample.ui.sampleNavGraph
 
 @Composable
 fun AppNavGraph(
