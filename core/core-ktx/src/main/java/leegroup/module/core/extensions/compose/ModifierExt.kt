@@ -2,7 +2,6 @@ package leegroup.module.core.extensions.compose
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
@@ -13,17 +12,9 @@ import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlin.math.ceil
-
-@Composable
-fun Modifier.widthForFixedItems(numOfItems: Float, totalSpacing: Int): Modifier {
-    val itemWidth =
-        ((LocalConfiguration.current.screenWidthDp.dp - totalSpacing.dp) / numOfItems.dp)
-    return width(itemWidth.dp)
-}
 
 @Suppress("MagicNumber", "LongMethod")
 @Composable

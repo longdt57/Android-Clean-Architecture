@@ -1,12 +1,12 @@
 [versions]
 
 activityCompose = "1.10.1"
-agp = "8.7.3"
+agp = "8.11.1"
 androidTracking = "1.0.9"
 appcompat = "1.7.1"
 appDistribution = "5.1.1"
 
-chucker = "4.0.0"
+chucker = "4.2.0"
 coil = "2.7.0"
 composeBom = "2025.06.01"
 compileSdk = "36"
@@ -30,52 +30,52 @@ firebaseFirestore = "25.1.4"
 googleService = "4.4.3"
 gradle-versions = "0.52.0"
 
-hiltAndroid = "2.55"
+hiltAndroid = "2.56.2"
 hiltNavigationCompose = "1.2.0"
 
 junit = "4.13.2"
 junitVersion = "1.2.1"
 
 kotestAssertionsCore = "5.9.1"
-kotlin = "2.1.21"
-kotlinxCollectionsImmutable = "0.3.8"
-kotlinxSerializationJson = "1.8.1"
+kotlin = "2.2.0"
+kotlinxCollectionsImmutable = "0.4.0"
+kotlinxSerializationJson = "1.9.0"
 kover = "0.9.1"
 ksp = "2.1.21-2.0.2"
 
-ktorClientContentNegotiation = "3.1.2"
-ktorClientCore = "3.1.2"
-ktorClientLogging = "3.1.2"
-ktorClientOkhttp = "3.1.2"
-ktorSerializationKotlinxJson = "3.1.2"
+ktorClientContentNegotiation = "3.2.1"
+ktorClientCore = "3.2.1"
+ktorClientLogging = "3.2.1"
+ktorClientOkhttp = "3.2.1"
+ktorSerializationKotlinxJson = "3.2.1"
 lifecycleRuntimeKtx = "2.9.1"
 leakcanary = "2.14"
 
 material = "1.12.0"
 material3Adaptive = "1.1.0"
 minSdk = "24"
-mockk = "1.13.17"
+mockk = "1.14.4"
 
-navigationCompose = "2.9.0"
+navigationCompose = "2.9.1"
 
-okhttp = "4.12.0"
+okhttp = "5.1.0"
 
 prod = "prod"
 
 release = "release"
-retrofit = "2.11.0"
+retrofit = "3.0.0"
 retrofit2KotlinxSerializationConverter = "1.0.0"
-robolectric = "4.14.1"
+robolectric = "4.15.1"
 room = "2.7.2"
 
-version-catalog-update = "0.8.5"
+version-catalog-update = "1.0.0"
 
 securityCrypto = "1.0.0"
 staging = "staging"
 
 targetSdk = "36"
 timber = "5.0.1"
-turbine = "1.2.0"
+turbine = "1.2.1"
 
 workRuntimeKtx = "2.10.2"
 

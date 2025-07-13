@@ -1,3 +1,4 @@
+import com.google.firebase.appdistribution.gradle.firebaseAppDistribution
 import org.jetbrains.kotlin.konan.properties.loadProperties
 
 plugins {
@@ -65,6 +66,7 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
             signingConfig = signingConfigs[release]
 
+            //noinspection WrongGradleMethod
             firebaseCrashlytics {
                 mappingFileUploadEnabled = true
             }
