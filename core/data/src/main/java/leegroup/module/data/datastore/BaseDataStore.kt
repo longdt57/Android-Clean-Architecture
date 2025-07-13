@@ -15,7 +15,7 @@ abstract class BaseDataStore(
     prefName: String,
 ) {
 
-    private val dataStore: DataStore<Preferences> = PreferenceDataStoreFactory.create(
+    protected val dataStore: DataStore<Preferences> = PreferenceDataStoreFactory.create(
         produceFile = { context.preferencesDataStoreFile(prefName) }
     )
 
@@ -43,5 +43,16 @@ abstract class BaseDataStore(
             val jsonValue = JsonUtil.encodeToString(value)
             settings[key] = jsonValue
         }
+    }
+
+    protected inline fun <reified T> getJsonValue(key: Preferences.Key<String>): Flow<T?> {
+        return dataStore.getJsonValue(key)
+    }
+
+    protected suspend inline fun <reified T : Any> setJsonValue(
+        key: Preferences.Key<String>,
+        value: T
+    ) {
+        dataStore.setJsonValue(key, value)
     }
 }

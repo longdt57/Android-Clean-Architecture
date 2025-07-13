@@ -23,7 +23,7 @@ internal class PhotoRoomModule {
             PhotoDatabase::class.java,
             APP_DATABASE
         )
-            .fallbackToDestructiveMigration()
+            .fallbackToDestructiveMigration(true)
             .build()
     }
 

@@ -23,7 +23,7 @@ internal class GitUserRoomModule {
             applicationContext,
             GitUserDatabase::class.java, APP_DATABASE
         )
-            .fallbackToDestructiveMigration()
+            .fallbackToDestructiveMigration(true)
             .build()
     }
 
