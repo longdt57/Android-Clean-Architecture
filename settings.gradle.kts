@@ -23,5 +23,6 @@ include(":sample")
 include(":core:designsystem")
 include(":core:data")
 include(":test")
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":core:core-ktx")
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
