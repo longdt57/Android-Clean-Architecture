@@ -55,4 +55,10 @@ abstract class BaseDataStore(
     ) {
         dataStore.setJsonValue(key, value)
     }
+
+    suspend fun clearAllData() {
+        dataStore.edit { preferences ->
+            preferences.clear()
+        }
+    }
 }
