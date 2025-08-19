@@ -16,92 +16,75 @@
 default_platform(:android)
 
 platform :android do
-  desc "Runs all the tests"
-  lane :test do
-    gradle(task: "test")
+
+  # Get version info from app/build.gradle.kts
+  def android_version_info
+    gradle_file = File.read("../app/build.gradle.kts")
+    version_code = gradle_file[/versionCode\s*=\s*(\d+)/, 1]
+    version_name = gradle_file[/versionName\s*=\s*"([^"]+)"/, 1]
+    {
+      "Version Code" => version_code || "N/A",
+      "Version Name" => version_name || "N/A"
+    }
   end
 
-  desc "Build and distribute app to Firebase App Distribution"
-    lane :deploy_firebase do |options|
-      flavor = options[:flavor] || prompt(text: "Enter the build flavor (Staging, Prod):")
-      build_file = "../app/build.gradle.kts"
+  desc "Upload STAGING APK to Firebase"
+    lane :staging_to_firebase do
+      begin
+        gradle(task: "assembleStagingRelease")
 
-      # Set or prompt for GOOGLE_APPLICATION_CREDENTIALS
-      ENV["GOOGLE_APPLICATION_CREDENTIALS"] ||= "../tools/firebase-distribution.json"
+        commit_message = sh("git log -1 --format=%s").strip
 
-      unless File.exist?(ENV["GOOGLE_APPLICATION_CREDENTIALS"])
-        entered_path = prompt(text: "GOOGLE_APPLICATION_CREDENTIALS file not found. Please enter the full path to your Firebase service account JSON file:")
+        firebase_app_distribution(
+          app: "1:569274712516:android:782915705e34a05ebca491",
+          groups: "firebase-testers",
+          release_notes: commit_message
+        )
 
-        unless File.exist?(entered_path)
-          UI.user_error!("The file at '#{entered_path}' does not exist. Aborting.")
-        end
-
-        ENV["GOOGLE_APPLICATION_CREDENTIALS"] = entered_path
+#         slack(
+#           message: "✅ STAGING APK uploaded to *Firebase App Distribution*",
+#           success: true,
+#           payload: android_version_info,
+#           slack_url: ENV["WEBHOOK_URL"]
+#         )
+#       rescue => ex
+#         slack(
+#           message: "❌ STAGING Firebase upload failed",
+#           success: false,
+#           payload: android_version_info.merge("Error" => ex.message),
+#           slack_url: ENV["WEBHOOK_URL"]
+#         )
+#         raise ex
       end
-
-      # Calculate new versionCode
-      start_time = Time.new(2021, 6, 21, 0, 0, 0)
-      current_time = Time.now
-      new_version_code = ((current_time - start_time) / 60).to_i
-
-      # Read current version info
-      old_version_code = sh("grep versionCode #{build_file}").match(/versionCode\s*=\s*(\d+)/)[1]
-      version_name = sh("grep versionName #{build_file}").match(/versionName\s*=\s*\"(.+)\"/)[1]
-
-      UI.message("Old versionCode: #{old_version_code}")
-      UI.message("New versionCode: #{new_version_code}")
-      UI.message("versionName: #{version_name}")
-
-      # Update versionCode
-      sh("sed -i '' -E 's/(versionCode *= *)[0-9]+/\\1#{new_version_code}/' #{build_file}")
-
-      # Generate release notes
-      release_notes_file = "release_notes.txt"
-      sh("git log -2 --no-merges --pretty=format:\"%B%n\" | sed '/^$/d' | awk '/\\[Build\\]/ {getline; next} 1' > #{release_notes_file}")
-
-      release_notes = File.read(release_notes_file)
-      if release_notes.empty?
-        UI.user_error!("Release notes are empty. Aborting.")
-      end
-
-      # Replace JIRA tags with links
-      jira_url = "https://jira.atlassian.net/browse/"
-      formatted_notes = release_notes.gsub(/\[([A-Z]+-\d+)\]/) { "[<#{jira_url}#{$1}|#{$1}>]" }
-
-      gradle(
-        task: "assemble#{flavor}Release"
-      )
-
-      # Build and upload to Firebase
-      firebase_app_distribution(
-        app: "1:569274712516:android:782915705e34a05ebca491",
-        android_artifact_type: "APK",
-        groups: "firebase-testers",
-        release_notes: formatted_notes
-      )
-
-      # Slack message
-      firebase_url = "https://firebaseappdistribution.googleapis.com..." # Optional if you know the format
-      message = "✅ Build Android App Successfully! <#{firebase_url}|#{version_name} (#{new_version_code})>\n\nRelease Notes:\n#{formatted_notes}"
-
-      # Uncomment when configured
-      # slack(
-      #   message: message,
-      #   webhook_url: ENV["SLACK_WEBHOOK_URL"]
-      # )
-
-      UI.success("Build and distribution finished!")
-
-      # Clean up
-      File.delete(release_notes_file) if File.exist?(release_notes_file)
-
-      # Revert version code
-      sh("sed -i '' -E 's/(versionCode *= *)[0-9]+/\\1#{old_version_code}/' #{build_file}")
     end
 
-  desc "Deploy a new version to the Google Play"
-  lane :deploy do
-    gradle(task: "clean assembleProdRelease")
-    upload_to_play_store
+  desc "Upload prod aab to play store"
+  lane :upload_prod_to_play_store do
+    begin
+      build_android_app(task: "bundleProdRelease")
+      json_key_path = ENV['GOOGLE_APPLICATION_CREDENTIALS']
+
+      upload_to_play_store(
+        package_name: 'com.app.androidcompose.prod',
+        track: 'internal',
+        json_key: json_key_path,
+        skip_upload_apk: 'true'
+      )
+
+      slack(
+        message: "✅ PROD AAB uploaded to *Play Store (internal)*",
+        success: true,
+        payload: android_version_info,
+        slack_url: ENV["WEBHOOK_URL"]
+      )
+    rescue => ex
+      slack(
+        message: "❌ PROD Play Store upload failed",
+        success: false,
+        payload: android_version_info.merge("Error" => ex.message),
+        slack_url: ENV["WEBHOOK_URL"]
+      )
+      raise ex
+    end
   end
 end

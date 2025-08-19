@@ -1,4 +1,3 @@
-import com.google.firebase.appdistribution.gradle.firebaseAppDistribution
 import org.jetbrains.kotlin.konan.properties.loadProperties
 
 plugins {
@@ -11,7 +10,6 @@ plugins {
     alias(libs.plugins.google.service)
     alias(libs.plugins.firebase.crashlytics)
     alias(libs.plugins.firebase.pref)
-    alias(libs.plugins.firebase.app.distribution)
     alias(libs.plugins.kotlinx.kover)
 }
 
@@ -79,11 +77,6 @@ android {
             isDefault = true
             applicationIdSuffix = ".staging"
 
-            firebaseAppDistribution {
-                artifactType = "APK"
-                releaseNotesFile = "release_notes.txt"
-                groups = "firebase-testers"
-            }
         }
 
         create(prod) {

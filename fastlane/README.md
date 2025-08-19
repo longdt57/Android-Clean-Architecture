@@ -16,29 +16,21 @@ _fastlane_](https://docs.fastlane.tools/#installing-fastlane)
 
 ## Android
 
-### android test
+### android staging_to_firebase
 
 ```sh
-[bundle exec] fastlane android test
+[bundle exec] fastlane android staging_to_firebase
 ```
 
-Runs all the tests
+Upload STAGING APK to Firebase
 
-### android deploy_firebase
+### android upload_prod_to_play_store
 
 ```sh
-[bundle exec] fastlane android deploy_firebase
+[bundle exec] fastlane android upload_prod_to_play_store
 ```
 
-Build and distribute app to Firebase App Distribution
-
-### android deploy
-
-```sh
-[bundle exec] fastlane android deploy
-```
-
-Deploy a new version to the Google Play
+Upload prod aab to play store
 
 ----
 
