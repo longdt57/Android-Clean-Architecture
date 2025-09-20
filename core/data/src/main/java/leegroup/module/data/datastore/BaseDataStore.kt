@@ -15,7 +15,7 @@ abstract class BaseDataStore(
     prefName: String,
 ) {
 
-    protected val dataStore: DataStore<Preferences> = PreferenceDataStoreFactory.create(
+    protected open val dataStore: DataStore<Preferences> = PreferenceDataStoreFactory.create(
         produceFile = { context.preferencesDataStoreFile(prefName) }
     )
 

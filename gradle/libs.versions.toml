@@ -78,6 +78,8 @@ timber = "5.0.1"
 turbine = "1.2.1"
 
 workRuntimeKtx = "2.10.2"
+tinkAndroid = "1.18.0"
+okio = "3.16.0"
 
 [libraries]
 android-tracking = { module = "com.github.longdt57:Android-Tracking", version.ref = "androidTracking" }
@@ -167,6 +169,9 @@ timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+tink-android = { module = "com.google.crypto.tink:tink-android", version.ref = "tinkAndroid" }
+okio = { module = "com.squareup.okio:okio", version.ref = "okio" }
 
 [bundles]
 androidx-lifecycle = ["androidx-lifecycle-runtime-ktx", "androidx-lifecycle-viewmodel-ktx", "androidx-lifecycle-process", "androidx-lifecycle-viewmodel-compose"]

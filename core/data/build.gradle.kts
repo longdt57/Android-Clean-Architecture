@@ -63,6 +63,9 @@ dependencies {
     // Retrofit
     implementation(libs.bundles.networking)
 
+    implementation(libs.tink.android)
+    implementation(libs.okio)
+
     testImplementation(libs.bundles.test)
 }
 
