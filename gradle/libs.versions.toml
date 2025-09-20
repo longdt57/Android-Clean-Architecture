@@ -165,6 +165,7 @@ room-testing = { module = "androidx.room:room-testing", version.ref = "room" }
 
 retrofit2-kotlinx-serialization-converter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "retrofit2KotlinxSerializationConverter" }
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
+ktor-testing = { module = "io.ktor:ktor-client-mock", version.ref = "ktorClientCore" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
@@ -180,7 +181,7 @@ firebase = ["firebase-analytics", "firebase-config", "firebase-crashlytics", "fi
 networking = ["retrofit", "okhttp", "okhttp-logging-interceptor", "retrofit2-kotlin-coroutines-adapter", "retrofit2-kotlinx-serialization-converter", "okhttp-dnsoverhttps",
     "ktor-client-core", "ktor-client-okhttp", "ktor-client-content-negotiation", "ktor-serialization-kotlinx-json", "ktor-client-logging"]
 room = ["room-runtime", "room-ktx"]
-test = ["junit", "androidx-core", "turbine", "kotest-assertions-core", "room-testing", "mockk", "kotlinx-coroutines-test", "robolectric"]
+test = ["junit", "androidx-core", "turbine", "kotest-assertions-core", "room-testing", "mockk", "kotlinx-coroutines-test", "robolectric", "ktor-testing"]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

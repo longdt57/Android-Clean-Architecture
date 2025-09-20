@@ -1,0 +1,11 @@
+package leegroup.module.data.network.model.error
+
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class ErrorModel(
+    @SerialName("code") override val code: Int,
+    @SerialName("message") override val message: String,
+) : BaseError
+
