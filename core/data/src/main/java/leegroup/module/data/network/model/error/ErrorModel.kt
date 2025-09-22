@@ -5,7 +5,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ErrorModel(
-    @SerialName("code") override val code: Int,
-    @SerialName("message") override val message: String,
-) : BaseError
-
+    @SerialName("code") val code: Int,
+    @SerialName("message") override val message: String = "",
+) : Throwable(message)

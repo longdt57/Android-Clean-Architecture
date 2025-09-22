@@ -1,4 +1,4 @@
-package leegroup.module.data
+package tori.core.data
 
 import app.cash.turbine.test
 import io.ktor.client.request.get
@@ -6,15 +6,14 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import leegroup.module.core.util.JsonUtil
-import leegroup.module.data.network.asCustomResult
-import leegroup.module.data.network.asResult
-import leegroup.module.data.network.flowTransform
-import leegroup.module.data.network.model.Result
+import leegroup.module.data.ApiMockUtil
+import leegroup.module.data.network.ResponseMapper.asCustomResult
+import leegroup.module.data.network.ResponseMapper.asResult
+import leegroup.module.data.network.ResponseMapper.flowTransform
+import leegroup.module.data.network.ResponseMapper.safeApiCall
 import leegroup.module.data.network.model.error.ErrorModel
-import leegroup.module.data.network.model.error.GenericError
 import leegroup.module.data.network.model.error.SampleCustomErrorModel
 import leegroup.module.data.network.model.response.BaseResponse
-import leegroup.module.data.network.safeApiCall
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -40,13 +39,14 @@ class ResponseMappingTest {
 
     @Test
     fun `safeApiCall emits error when exception thrown`() = runTest {
-        val flow = safeApiCall<String> { throw RuntimeException("Boom") }
+        val error = RuntimeException("Boom")
+        val flow = safeApiCall<String> { throw error }
             .asResult()
 
         flow.test {
-            val item = awaitItem()
-            assert(item is Result.Error)
-            assertEquals(GenericError, (item as Result.Error).error)
+            val item = expectMostRecentItem()
+            assert(item.isFailure)
+            assertEquals(error, item.exceptionOrNull())
             awaitComplete()
         }
     }
@@ -57,20 +57,21 @@ class ResponseMappingTest {
 
         flow.test {
             val item = awaitItem()
-            assert(item is Result.Success)
-            assertEquals("Data", (item as Result.Success).data)
+            assert(item.isSuccess)
+            assertEquals("Data", item.getOrThrow())
             awaitComplete()
         }
     }
 
     @Test
     fun `asResult emits Error on exception`() = runTest {
-        val flow = flowTransform<String> { throw RuntimeException("Boom") }.asResult()
+        val error = RuntimeException("Boom")
+        val flow = flowTransform<String> { throw error }.asResult()
 
         flow.test {
-            val item = awaitItem()
-            assert(item is Result.Error)
-            assertEquals(GenericError, (item as Result.Error).error)
+            val item = expectMostRecentItem()
+            assert(item.isFailure)
+            assertEquals(error, item.exceptionOrNull())
             awaitComplete()
         }
     }
@@ -89,8 +90,8 @@ class ResponseMappingTest {
             client.get("https://fake.api/test")
         }.asResult().test {
             val item = awaitItem()
-            assert(item is Result.Error)
-            assertEquals(expectedError, (item as Result.Error).error)
+            assert(item.isFailure)
+            assertEquals(expectedError, item.exceptionOrNull())
             awaitComplete()
         }
     }
@@ -110,8 +111,8 @@ class ResponseMappingTest {
             client.get("https://fake.api/test")
         }.asCustomResult<Unit, SampleCustomErrorModel>().test {
             val item = awaitItem()
-            assert(item is Result.Error)
-            assertEquals(expectedError, (item as Result.Error).error)
+            assert(item.isFailure)
+            assertEquals(expectedError, item.exceptionOrNull())
             awaitComplete()
         }
     }

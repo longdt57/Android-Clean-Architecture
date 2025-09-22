@@ -9,11 +9,11 @@ import kotlinx.serialization.Serializable
 @Serializable
 internal data class SampleCustomErrorModel(
     @SerialName("code")
-    override val code: Int,
+    val code: Int,
 
     @SerialName("message")
     override val message: String,
 
     @SerialName("title")
     val title: String,
-) : BaseError
+) : Throwable(message)
