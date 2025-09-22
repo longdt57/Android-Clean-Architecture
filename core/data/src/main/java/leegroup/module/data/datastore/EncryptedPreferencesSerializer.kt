@@ -4,8 +4,8 @@ import androidx.datastore.core.Serializer
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.PreferencesSerializer
 import androidx.datastore.preferences.core.emptyPreferences
+import leegroup.module.data.encrypt.EncryptionUtils
 import okio.Buffer
-import tori.module.datasource.encrypt.EncryptionUtils
 import java.io.InputStream
 import java.io.OutputStream
 

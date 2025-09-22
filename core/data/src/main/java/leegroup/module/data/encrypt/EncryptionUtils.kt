@@ -1,9 +1,10 @@
-package tori.module.datasource.encrypt
+package leegroup.module.data.encrypt
 
 import android.content.Context
 import com.google.crypto.tink.Aead
 import com.google.crypto.tink.RegistryConfiguration
 import com.google.crypto.tink.aead.AeadConfig
+import com.google.crypto.tink.aead.AeadKeyTemplates
 import com.google.crypto.tink.integration.android.AndroidKeysetManager
 
 object EncryptionUtils {
@@ -15,7 +16,7 @@ object EncryptionUtils {
         AeadConfig.register()
         val keysetHandle = AndroidKeysetManager.Builder()
             .withSharedPref(context, "master_keyset", "master_key_preference")
-            .withKeyTemplate(com.google.crypto.tink.aead.AeadKeyTemplates.AES256_GCM)
+            .withKeyTemplate(AeadKeyTemplates.AES256_GCM)
             .withMasterKeyUri("android-keystore://master_key")
             .build()
             .keysetHandle

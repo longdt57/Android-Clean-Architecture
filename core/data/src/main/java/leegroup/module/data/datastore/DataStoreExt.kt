@@ -8,6 +8,18 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import leegroup.module.core.util.JsonUtil
 
+fun <T> DataStore<Preferences>.getValue(key: Preferences.Key<T>): Flow<T?> {
+    return data.map { preferences ->
+        preferences[key]
+    }
+}
+
+suspend fun <T> DataStore<Preferences>.setValue(key: Preferences.Key<T>, value: T) {
+    edit { settings ->
+        settings[key] = value
+    }
+}
+
 inline fun <reified T> DataStore<Preferences>.getJsonValue(key: Preferences.Key<String>): Flow<T?> {
     return data.map { preferences ->
         preferences[key]
@@ -34,4 +46,3 @@ inline fun <reified T : Any> MutablePreferences.setJsonValue(
 ) {
     this[key] = JsonUtil.encodeToString(value)
 }
-

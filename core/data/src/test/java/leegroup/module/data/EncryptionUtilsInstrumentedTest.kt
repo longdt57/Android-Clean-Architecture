@@ -2,6 +2,7 @@ package leegroup.module.data
 
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
+import leegroup.module.data.encrypt.EncryptionUtils
 import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertNotEquals
 import org.junit.Before
@@ -9,7 +10,6 @@ import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
-import tori.module.datasource.encrypt.EncryptionUtils
 
 @RunWith(RobolectricTestRunner::class)
 @Ignore("can't run robolectric")

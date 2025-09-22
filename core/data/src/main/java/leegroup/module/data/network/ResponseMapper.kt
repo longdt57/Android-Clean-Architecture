@@ -19,6 +19,7 @@ object ResponseMapper {
             .onFailure { exception -> throw exception }
     }
 
+    @Deprecated("Use flowTransform instead")
     fun <T : Any?> safeApiCall(call: suspend () -> BaseResponse<T>): Flow<T> = flow {
         runCatching { call() }
             .onSuccess { result -> emit(result.data) }

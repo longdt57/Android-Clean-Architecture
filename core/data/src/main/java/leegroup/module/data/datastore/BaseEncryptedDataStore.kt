@@ -16,6 +16,10 @@ abstract class BaseEncryptedDataStore(
     prefName: String
 ) : BaseDataStore(context, prefName) {
 
+    init {
+        EncryptionManager.init(context)
+    }
+
     override val dataStore: DataStore<Preferences> =
         DataStoreFactory.create(
             serializer = EncryptedPreferencesSerializer,
