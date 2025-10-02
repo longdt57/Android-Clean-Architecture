@@ -13,6 +13,7 @@ object JsonUtil {
             ignoreUnknownKeys = true
             explicitNulls = false
             isLenient = true
+            encodeDefaults = true
         }
 
     inline fun <reified T> decodeFromString(value: String): T? {

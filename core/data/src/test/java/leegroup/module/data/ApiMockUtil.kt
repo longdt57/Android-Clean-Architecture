@@ -45,6 +45,7 @@ internal object ApiMockUtil {
                         ignoreUnknownKeys = true
                         explicitNulls = false
                         isLenient = true
+                        encodeDefaults = true
                     }
                 )
             }
