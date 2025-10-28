@@ -11,7 +11,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import leegroup.module.designsystem.support.extensions.appNavigate
-import leegroup.module.designsystem.support.extensions.composable
 import leegroup.module.sample.gituser.ui.screens.gituser.GitUserListScreen
 import leegroup.module.sample.gituser.ui.screens.gituserdetail.GitUserDetailScreen
 
@@ -20,10 +19,10 @@ fun NavGraphBuilder.gitUserNavGraph(
 ) {
 
     navigation(
-        route = GitUserDestination.GitUserRoot.route,
-        startDestination = GitUserDestination.GitUserList.destination
+        route = GitUserDestination.GitUserRoot::class,
+        startDestination = GitUserDestination.GitUserList
     ) {
-        composable(GitUserDestination.GitUserList) {
+        composable<GitUserDestination.GitUserList> {
             GitUserListScreen(
                 navigator = { destination -> navController.appNavigate(destination) },
                 modifier = Modifier
@@ -31,7 +30,7 @@ fun NavGraphBuilder.gitUserNavGraph(
                     .background(MaterialTheme.colorScheme.background)
             )
         }
-        composable<GitUserDestination.GitUserDetail.GitUserDetailNav> {
+        composable<GitUserDestination.GitUserDetail> {
             GitUserDetailScreen(
                 navigator = { destination ->
                     navController.appNavigate(destination)

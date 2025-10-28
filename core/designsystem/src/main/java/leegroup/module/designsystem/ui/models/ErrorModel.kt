@@ -9,11 +9,4 @@ open class ErrorModel(
     val message: String? = null,
     @SerialName("code")
     val code: Int? = null,
-) {
-    companion object {
-        val UnknownErrorModel = ErrorModel(
-            message = "Unknown error",
-            code = 0,
-        )
-    }
-}
+)

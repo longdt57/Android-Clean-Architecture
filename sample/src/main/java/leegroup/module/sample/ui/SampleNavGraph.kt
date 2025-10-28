@@ -8,14 +8,14 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.composable
 import leegroup.module.designsystem.support.extensions.appNavigate
-import leegroup.module.designsystem.support.extensions.composable
 import leegroup.module.sample.ui.screens.main.SampleScreen
 
 fun NavGraphBuilder.sampleNavGraph(
     navController: NavHostController,
 ) {
-    composable(SampleDestination.SampleScreen) {
+    composable<SampleDestination.SampleScreen> {
         SampleScreen(
             navigator = { destination -> navController.appNavigate(destination) },
             modifier = Modifier

@@ -1,10 +1,14 @@
 package leegroup.module.photosample.ui.screens.main
 
-import leegroup.module.designsystem.ui.models.BaseDestination
+import androidx.annotation.Keep
+import kotlinx.serialization.Serializable
 import leegroup.module.photosample.ui.models.PhotoUiModel
 
-sealed class PhotoDestination {
-    object PhotoList : BaseDestination("photoList")
+sealed interface PhotoDestination {
+
+    @Serializable
+    @Keep
+    data object PhotoList : PhotoDestination
 }
 
 internal typealias PhotoDetailNav = PhotoUiModel

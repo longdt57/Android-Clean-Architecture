@@ -134,7 +134,6 @@ private class MockBaseViewModel : BaseViewModel() {
             is Action.ShowLoading -> showLoading()
             is Action.HideLoading -> hideLoading()
             is Action.HandleError -> handleError(action.throwable)
-            is Action.HideError -> hideError()
             is Action.OnErrorDismissClick -> onErrorDismissClick(ErrorState.None)
             is Action.OnErrorConfirmation -> onErrorConfirmation(ErrorState.None)
         }

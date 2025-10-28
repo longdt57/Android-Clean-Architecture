@@ -3,12 +3,17 @@ package leegroup.module.designsystem.theme
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
+import leegroup.module.designsystem.ui.models.LocalTopSnackbarHostStateManager
+import leegroup.module.designsystem.ui.models.SnackbarHostStateManager
 
 private val DarkColorScheme = darkColorScheme(
     primary = White100,
@@ -65,10 +70,22 @@ fun ComposeTheme(
         else -> LightColorScheme
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        shapes = Shapes,
-        content = content,
-    )
+    val snackbarErrorHostState = remember { SnackbarHostState() }
+    val snackbarHostState = remember { SnackbarHostState() }
+    val snackbarWarningHostState = remember { SnackbarHostState() }
+
+    CompositionLocalProvider(
+        LocalTopSnackbarHostStateManager provides SnackbarHostStateManager(
+            success = snackbarHostState,
+            error = snackbarErrorHostState,
+            warning = snackbarWarningHostState
+        ),
+    ) {
+        MaterialTheme(
+            colorScheme = colorScheme,
+            typography = Typography,
+            shapes = Shapes,
+            content = content,
+        )
+    }
 }

@@ -5,5 +5,5 @@ import leegroup.module.designsystem.R
 
 sealed interface LoadingState {
     data object None : LoadingState
-    data class Loading(@StringRes val messageRes: Int = R.string.loading) : LoadingState
+    data class Loading(@param:StringRes val messageRes: Int = R.string.loading) : LoadingState
 }

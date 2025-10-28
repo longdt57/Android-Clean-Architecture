@@ -1,6 +1,7 @@
 package leegroup.module.designsystem.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -9,10 +10,12 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.launch
 import leegroup.module.designsystem.support.extensions.mapApiError
 import leegroup.module.designsystem.ui.models.ErrorModel
 import leegroup.module.designsystem.ui.models.ErrorState
 import leegroup.module.designsystem.ui.models.LoadingState
+import leegroup.module.designsystem.ui.models.Message
 
 @Suppress("PropertyName", "MemberVisibilityCanBePrivate")
 abstract class BaseViewModel : ViewModel() {
@@ -22,6 +25,12 @@ abstract class BaseViewModel : ViewModel() {
 
     protected val _error = MutableStateFlow<ErrorState>(ErrorState.None)
     val error = _error.asStateFlow()
+
+    protected val _message = MutableSharedFlow<Message>(
+        extraBufferCapacity = 1,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST
+    )
+    val message = _message.asSharedFlow()
 
     protected val _navigator = MutableSharedFlow<Any>(
         extraBufferCapacity = 1,
@@ -65,6 +74,13 @@ abstract class BaseViewModel : ViewModel() {
 
     protected fun hideError() {
         _error.tryEmit(ErrorState.None)
+    }
+
+    fun sendMessage(message: Message) {
+        viewModelScope.launch {
+            _message.emit(message)
+        }
+
     }
 
     protected fun <T> Flow<T>.injectLoading(): Flow<T> = this

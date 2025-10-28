@@ -17,7 +17,7 @@ internal fun PhotoListEmpty(modifier: Modifier = Modifier, onRefresh: () -> Unit
     Box(modifier, contentAlignment = Alignment.Center) {
         Button(onClick = onRefresh) {
             Text(
-                text = stringResource(id = R.string.common_retry),
+                text = stringResource(id = R.string.retry),
                 style = MaterialTheme.typography.titleMedium
             )
         }

@@ -1,10 +1,16 @@
 package com.app.androidcompose.ui
 
-import leegroup.module.designsystem.ui.models.BaseDestination
+import androidx.annotation.Keep
+import kotlinx.serialization.Serializable
 
 sealed class AppDestination {
 
-    object RootNavGraph : BaseDestination("rootNavGraph")
-    object MainScreen : BaseDestination("mainScreen")
+    @Serializable
+    @Keep
+    data object RootNavGraph
+
+    @Serializable
+    @Keep
+    data object MainScreen
 
 }

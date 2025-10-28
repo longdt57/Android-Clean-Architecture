@@ -3,6 +3,7 @@ package leegroup.module.designsystem.components
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import leegroup.module.designsystem.ui.models.LoadingState
+import leegroup.module.designsystem.ui.screen.LoadingProgress
 
 @Composable
 fun LoadingView(loading: LoadingState) {

@@ -23,6 +23,7 @@ import leegroup.module.photosample.ui.screens.main.PhotoDestination
 import leegroup.module.sample.gituser.ui.screens.GitUserDestination
 import leegroup.module.sample.ui.SampleDestination
 
+
 @Composable
 fun MainScreen(
     navigator: (destination: Any) -> Unit,
@@ -59,7 +60,7 @@ fun MainScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(16.dp),
-                    text = it.route,
+                    text = it::class.java.simpleName,
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onBackground,
                     textAlign = TextAlign.Center,

@@ -1,88 +1,86 @@
 [versions]
 
-activityCompose = "1.10.1"
-agp = "8.11.1"
+activityCompose = "1.11.0"
+agp = "8.13.0"
 androidTracking = "1.0.9"
 appcompat = "1.7.1"
 appDistribution = "5.1.1"
 
 chucker = "4.2.0"
-coil = "2.7.0"
-composeBom = "2025.06.01"
+coil = "3.3.0"
+composeBom = "2025.10.01"
 compileSdk = "36"
 composeExtensionVersion = "1.5.4"
-core = "1.6.1"
-coreKtx = "1.16.0"
+core = "1.7.0"
+coreKtx = "1.17.0"
 coroutineTest = "1.10.2"
 coroutines = "1.10.2"
-crashlytic = "3.0.4"
+crashlytic = "3.0.6"
 
 datastorePreferences = "1.1.7"
 debug = "debug"
 detektVersion = "1.23.0"
 
-espressoCore = "3.6.1"
+espressoCore = "3.7.0"
 
 firebaseBom = "33.16.0"
-firebasePref = "1.4.2"
-firebaseFirestore = "25.1.4"
+firebasePref = "2.0.1"
+firebaseFirestore = "26.0.2"
 
-googleService = "4.4.3"
-gradle-versions = "0.52.0"
+googleService = "4.4.4"
+gradle-versions = "0.53.0"
 
-hiltAndroid = "2.56.2"
-hiltNavigationCompose = "1.2.0"
+hiltAndroid = "2.57.2"
+hiltNavigationCompose = "1.3.0"
 
 junit = "4.13.2"
-junitVersion = "1.2.1"
+junitVersion = "1.3.0"
 
-kotestAssertionsCore = "5.9.1"
-kotlin = "2.2.0"
+kotestAssertionsCore = "6.0.4"
+kotlin = "2.2.21"
 kotlinxCollectionsImmutable = "0.4.0"
 kotlinxSerializationJson = "1.9.0"
-kover = "0.9.1"
+kover = "0.9.3"
 ksp = "2.1.21-2.0.2"
 
-ktorClientContentNegotiation = "3.2.1"
-ktorClientCore = "3.2.1"
-ktorClientLogging = "3.2.1"
-ktorClientOkhttp = "3.2.1"
-ktorSerializationKotlinxJson = "3.2.1"
-lifecycleRuntimeKtx = "2.9.1"
+ktorClient = "3.3.1"
+lifecycleRuntimeKtx = "2.9.4"
 leakcanary = "2.14"
 
-material = "1.12.0"
-material3Adaptive = "1.1.0"
+material = "1.13.0"
+material3Adaptive = "1.2.0"
+materialIconsExtended = "1.7.8"
 minSdk = "24"
-mockk = "1.14.4"
+mockk = "1.14.6"
 
-navigationCompose = "2.9.1"
+navigationCompose = "2.9.5"
 
-okhttp = "5.1.0"
+okhttp = "5.2.1"
 
 prod = "prod"
 
 release = "release"
 retrofit = "3.0.0"
 retrofit2KotlinxSerializationConverter = "1.0.0"
-robolectric = "4.15.1"
-room = "2.7.2"
+robolectric = "4.16"
+room = "2.8.3"
 
-version-catalog-update = "1.0.0"
+version-catalog-update = "1.0.1"
 
-securityCrypto = "1.0.0"
+securityCrypto = "1.1.0"
 staging = "staging"
 
 targetSdk = "36"
 timber = "5.0.1"
 turbine = "1.2.1"
 
-workRuntimeKtx = "2.10.2"
-tinkAndroid = "1.18.0"
-okio = "3.16.0"
+workRuntimeKtx = "2.11.0"
+tinkAndroid = "1.19.0"
+okio = "3.16.2"
 
 [libraries]
 android-tracking = { module = "com.github.longdt57:Android-Tracking", version.ref = "androidTracking" }
+androidx-compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
 androidx-core = { module = "androidx.test:core", version.ref = "core" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
@@ -119,21 +117,21 @@ firebase-inappmessaging-display-ktx = { module = "com.google.firebase:firebase-i
 firebase-messaging-ktx = { module = "com.google.firebase:firebase-messaging-ktx" }
 firebase-perf = { module = "com.google.firebase:firebase-perf" }
 
-ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorClientContentNegotiation" }
-ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktorClientLogging" }
-ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktorClientOkhttp" }
-ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorClientCore" }
-ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorSerializationKotlinxJson" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorClient" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktorClient" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktorClient" }
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktorClient" }
+ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorClient" }
 library-chucker = { module = "com.github.chuckerteam.chucker:library", version.ref = "chucker" }
 library-chucker-no-op = { module = "com.github.chuckerteam.chucker:library-no-op", version.ref = "chucker" }
 
 # LeakCanary
 squareup-leakcanary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary" }
 
-coil = { module = "io.coil-kt:coil", version.ref = "coil" }
-coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
-coil-gif = { module = "io.coil-kt:coil-gif", version.ref = "coil" }
-coil-svg = { module = "io.coil-kt:coil-svg", version.ref = "coil" }
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
+coil-okhttp-compose = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coil" }
+coil-gif = { module = "io.coil-kt.coil3:coil-gif", version.ref = "coil" }
+coil-svg = { module = "io.coil-kt.coil3:coil-svg", version.ref = "coil" }
 
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid" }
@@ -165,7 +163,7 @@ room-testing = { module = "androidx.room:room-testing", version.ref = "room" }
 
 retrofit2-kotlinx-serialization-converter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "retrofit2KotlinxSerializationConverter" }
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
-ktor-testing = { module = "io.ktor:ktor-client-mock", version.ref = "ktorClientCore" }
+ktor-testing = { module = "io.ktor:ktor-client-mock", version.ref = "ktorClient" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
@@ -176,7 +174,7 @@ okio = { module = "com.squareup.okio:okio", version.ref = "okio" }
 
 [bundles]
 androidx-lifecycle = ["androidx-lifecycle-runtime-ktx", "androidx-lifecycle-viewmodel-ktx", "androidx-lifecycle-process", "androidx-lifecycle-viewmodel-compose"]
-coil = ["coil", "coil-compose", "coil-gif", "coil-svg"]
+coil = ["coil-compose", "coil-gif", "coil-svg"]
 firebase = ["firebase-analytics", "firebase-config", "firebase-crashlytics", "firebase-inappmessaging-display-ktx", "firebase-messaging-ktx", "firebase-perf"]
 networking = ["retrofit", "okhttp", "okhttp-logging-interceptor", "retrofit2-kotlin-coroutines-adapter", "retrofit2-kotlinx-serialization-converter", "okhttp-dnsoverhttps",
     "ktor-client-core", "ktor-client-okhttp", "ktor-client-content-negotiation", "ktor-serialization-kotlinx-json", "ktor-client-logging"]

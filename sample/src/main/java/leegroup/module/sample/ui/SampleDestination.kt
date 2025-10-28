@@ -1,7 +1,10 @@
 package leegroup.module.sample.ui
 
-import leegroup.module.designsystem.ui.models.BaseDestination
+import androidx.annotation.Keep
+import kotlinx.serialization.Serializable
 
-sealed class SampleDestination {
-    object SampleScreen : BaseDestination("sampleScreen")
+sealed interface SampleDestination {
+    @Serializable
+    @Keep
+    data object SampleScreen : SampleDestination
 }

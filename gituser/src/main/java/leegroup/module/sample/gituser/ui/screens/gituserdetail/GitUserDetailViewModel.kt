@@ -23,7 +23,7 @@ import javax.inject.Inject
 @HiltViewModel
 internal class GitUserDetailViewModel @Inject constructor(
     private val savedStateHandle: SavedStateHandle,
-    private val savedStateProvider: SavedStateProvider<GitUserDestination.GitUserDetail.GitUserDetailNav>,
+    private val savedStateProvider: SavedStateProvider<GitUserDestination.GitUserDetail>,
     private val dispatchersProvider: DispatchersProvider,
     private val getGitUserDetailLocalUseCase: GetGitUserDetailLocalUseCase,
     private val getGitUserDetailRemoteUseCase: GetGitUserDetailRemoteUseCase,

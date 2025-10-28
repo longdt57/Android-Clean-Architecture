@@ -1,4 +1,4 @@
-package leegroup.module.designsystem.components
+package leegroup.module.designsystem.ui.screen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import leegroup.module.core.extensions.compose.stringResourceOrNull
 import leegroup.module.designsystem.R
+import leegroup.module.designsystem.theme.ComposeTheme
 import leegroup.module.designsystem.ui.models.LoadingState
 
 @Composable
@@ -33,7 +34,7 @@ fun LoadingProgress(loading: LoadingState.Loading) {
 @Preview(showBackground = true)
 @Composable
 private fun LoadingProgressPreview() {
-    leegroup.module.designsystem.theme.ComposeTheme {
+    ComposeTheme {
         LoadingProgress(loading = LoadingState.Loading(messageRes = R.string.loading))
     }
 }

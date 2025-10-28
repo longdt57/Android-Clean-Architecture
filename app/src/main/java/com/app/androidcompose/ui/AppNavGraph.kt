@@ -19,11 +19,11 @@ fun AppNavGraph(
 ) {
     NavHost(
         navController = navController,
-        route = AppDestination.RootNavGraph.route,
-        startDestination = AppDestination.MainScreen.destination,
+        route = AppDestination.RootNavGraph::class,
+        startDestination = AppDestination.MainScreen,
         modifier = modifier
     ) {
-        composable(AppDestination.MainScreen.route) {
+        composable<AppDestination.MainScreen> {
             MainScreen(
                 navigator = { destination ->
                     navController.appNavigate(

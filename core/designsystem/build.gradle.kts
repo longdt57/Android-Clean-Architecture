@@ -52,17 +52,23 @@ dependencies {
     implementation(projects.core.coreKtx)
 
     // Lifecycle
-    implementation(libs.bundles.androidx.lifecycle)
+    api(libs.bundles.androidx.lifecycle)
 
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
+    api(platform(libs.androidx.compose.bom))
+    api(libs.androidx.ui.tooling.preview)
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.navigation.compose)
+    api(libs.androidx.material3)
+    api(libs.androidx.compose.material.icons.extended)
+
+    api(libs.androidx.core.ktx)
+    api(libs.androidx.navigation.compose)
+    api(libs.androidx.appcompat)
+
+    // Coil
+    api(libs.bundles.coil)
 
     // Serialization
-    implementation(libs.kotlinx.serialization.json)
+    api(libs.kotlinx.serialization.json)
 
     // Retrofit
     implementation(libs.bundles.networking)

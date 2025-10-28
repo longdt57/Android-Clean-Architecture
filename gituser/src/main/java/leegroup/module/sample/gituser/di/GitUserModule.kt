@@ -14,10 +14,10 @@ import leegroup.module.sample.gituser.ui.screens.GitUserDestination
 class GitUserModule {
 
     @Provides
-    fun provideGitUserSavedStateProvider(): SavedStateProvider<GitUserDestination.GitUserDetail.GitUserDetailNav> =
-        object : SavedStateProvider<GitUserDestination.GitUserDetail.GitUserDetailNav> {
+    fun provideGitUserSavedStateProvider(): SavedStateProvider<GitUserDestination.GitUserDetail> =
+        object : SavedStateProvider<GitUserDestination.GitUserDetail> {
 
-            override fun toRoute(savedStateHandle: SavedStateHandle): GitUserDestination.GitUserDetail.GitUserDetailNav {
+            override fun toRoute(savedStateHandle: SavedStateHandle): GitUserDestination.GitUserDetail {
                 return savedStateHandle.toRoute()
             }
         }

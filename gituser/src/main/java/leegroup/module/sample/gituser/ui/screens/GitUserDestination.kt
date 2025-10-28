@@ -1,17 +1,19 @@
 package leegroup.module.sample.gituser.ui.screens
 
+import androidx.annotation.Keep
 import kotlinx.serialization.Serializable
-import leegroup.module.designsystem.ui.models.BaseDestination
 
-sealed class GitUserDestination {
-    object GitUserRoot : BaseDestination("gitUserRoot")
+sealed interface GitUserDestination {
 
-    object GitUserList : BaseDestination("gitUserList")
-    object GitUserDetail : BaseDestination("") {
+    @Serializable
+    @Keep
+    data object GitUserRoot : GitUserDestination
 
-        @Serializable
-        data class GitUserDetailNav(
-            val login: String
-        )
-    }
+    @Serializable
+    object GitUserList : GitUserDestination
+
+    @Serializable
+    data class GitUserDetail(
+        val login: String
+    ) : GitUserDestination
 }

@@ -19,8 +19,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.collections.immutable.persistentListOf
 import leegroup.module.core.extensions.compose.collectAsEffect
-import leegroup.module.designsystem.components.BaseScreen
 import leegroup.module.designsystem.ui.models.LoadingState
+import leegroup.module.designsystem.ui.screen.BaseScreen
 import leegroup.module.photosample.ui.models.PhotoListUiModel
 import leegroup.module.photosample.ui.models.PhotoUiModel
 import leegroup.module.photosample.ui.screens.components.QueryBox

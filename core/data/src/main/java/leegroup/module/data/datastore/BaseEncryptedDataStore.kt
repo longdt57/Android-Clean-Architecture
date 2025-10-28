@@ -10,6 +10,7 @@ import androidx.datastore.preferences.preferencesDataStoreFile
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import leegroup.module.data.encrypt.EncryptionUtils
 
 abstract class BaseEncryptedDataStore(
     context: Context,
@@ -17,7 +18,7 @@ abstract class BaseEncryptedDataStore(
 ) : BaseDataStore(context, prefName) {
 
     init {
-        EncryptionManager.init(context)
+        EncryptionUtils.init(context)
     }
 
     override val dataStore: DataStore<Preferences> =

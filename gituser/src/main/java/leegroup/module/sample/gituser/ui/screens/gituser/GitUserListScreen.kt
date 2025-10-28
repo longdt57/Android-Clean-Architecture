@@ -17,8 +17,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import leegroup.module.core.extensions.compose.collectAsEffect
-import leegroup.module.designsystem.components.BaseScreen
 import leegroup.module.designsystem.ui.models.LoadingState
+import leegroup.module.designsystem.ui.screen.BaseScreen
 import leegroup.module.sample.gituser.domain.models.GitUserModel
 import leegroup.module.sample.gituser.ui.screens.GitUserDestination
 import leegroup.module.sample.gituser.ui.screens.gituser.components.GitUserList
@@ -57,7 +57,7 @@ fun GitUserListScreen(
             },
             onClick = { user ->
                 viewModel.handleAction(GitUserListAction.TrackOpenUserDetail(user.login))
-                navigator(GitUserDestination.GitUserDetail.GitUserDetailNav(user.login))
+                navigator(GitUserDestination.GitUserDetail(user.login))
             },
             onRefresh = {
                 viewModel.handleAction(GitUserListAction.Refresh)

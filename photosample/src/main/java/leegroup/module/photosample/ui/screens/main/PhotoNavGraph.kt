@@ -9,7 +9,6 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import leegroup.module.designsystem.support.extensions.appNavigate
-import leegroup.module.designsystem.support.extensions.composable
 import leegroup.module.photosample.ui.models.PhotoUiModel
 import leegroup.module.photosample.ui.screens.main.photodetail.PhotoDetailScreen
 import leegroup.module.photosample.ui.screens.main.photolist.PhotoListScreen
@@ -18,7 +17,7 @@ fun NavGraphBuilder.photoNavGraph(
     navController: NavHostController,
 ) {
 
-    composable(PhotoDestination.PhotoList) {
+    composable<PhotoDestination.PhotoList> {
         PhotoListScreen(
             navigator = { destination ->
                 navController.appNavigate(destination)
