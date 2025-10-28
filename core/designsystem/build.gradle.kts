@@ -50,6 +50,7 @@ android {
 dependencies {
 
     implementation(projects.core.coreKtx)
+    implementation(projects.core.data)
 
     // Lifecycle
     api(libs.bundles.androidx.lifecycle)

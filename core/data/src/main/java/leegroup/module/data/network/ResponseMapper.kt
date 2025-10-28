@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import leegroup.module.data.network.ErrorMapper.mapApiCustomError
 import leegroup.module.data.network.ErrorMapper.mapApiError
-import leegroup.module.data.network.model.response.BaseResponse
 
 /**
  * Use object to add to kover
@@ -16,13 +15,6 @@ object ResponseMapper {
     fun <T> flowTransform(call: suspend FlowCollector<T>.() -> T) = flow {
         runCatching { call() }
             .onSuccess { result -> emit(result) }
-            .onFailure { exception -> throw exception }
-    }
-
-    @Deprecated("Use flowTransform instead")
-    fun <T : Any?> safeApiCall(call: suspend () -> BaseResponse<T>): Flow<T> = flow {
-        runCatching { call() }
-            .onSuccess { result -> emit(result.data) }
             .onFailure { exception -> throw exception }
     }
 

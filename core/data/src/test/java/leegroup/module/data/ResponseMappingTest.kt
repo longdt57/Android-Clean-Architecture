@@ -8,46 +8,13 @@ import leegroup.module.core.util.JsonUtil
 import leegroup.module.data.network.ResponseMapper.asCustomResult
 import leegroup.module.data.network.ResponseMapper.asResult
 import leegroup.module.data.network.ResponseMapper.flowTransform
-import leegroup.module.data.network.ResponseMapper.safeApiCall
 import leegroup.module.data.network.model.error.ErrorModel
 import leegroup.module.data.network.model.error.SampleCustomErrorModel
-import leegroup.module.data.network.model.response.BaseResponse
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class ResponseMappingTest {
-
-    @Test
-    fun `safeApiCall emits success data`() = runTest {
-        val response = BaseResponse(
-            success = true,
-            data = "Hello World",
-            message = null,
-            code = 200
-        )
-        val flow = safeApiCall { response }
-
-        flow.test {
-            val item = awaitItem()
-            assertEquals("Hello World", item)
-            awaitComplete()
-        }
-    }
-
-    @Test
-    fun `safeApiCall emits error when exception thrown`() = runTest {
-        val error = RuntimeException("Boom")
-        val flow = safeApiCall<String> { throw error }
-            .asResult()
-
-        flow.test {
-            val item = expectMostRecentItem()
-            assert(item.isFailure)
-            assertEquals(error, item.exceptionOrNull())
-            awaitComplete()
-        }
-    }
 
     @Test
     fun `asResult emits Success on normal flow`() = runTest {
