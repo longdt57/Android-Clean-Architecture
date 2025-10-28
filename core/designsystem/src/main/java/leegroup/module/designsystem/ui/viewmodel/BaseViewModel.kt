@@ -23,8 +23,11 @@ abstract class BaseViewModel : ViewModel() {
     private val _loading: MutableStateFlow<LoadingState> = MutableStateFlow(LoadingState.None)
     val loading = _loading.asStateFlow()
 
-    protected val _error = MutableStateFlow<ErrorState>(ErrorState.None)
-    val error = _error.asStateFlow()
+    protected val _error = MutableSharedFlow<ErrorState>(
+        extraBufferCapacity = 1,
+        onBufferOverflow = BufferOverflow.DROP_OLDEST
+    )
+    val error = _error.asSharedFlow()
 
     protected val _message = MutableSharedFlow<Message>(
         extraBufferCapacity = 1,
@@ -64,23 +67,12 @@ abstract class BaseViewModel : ViewModel() {
         action(error)
     }
 
-    open fun onErrorConfirmation(errorState: ErrorState) {
-        hideError()
-    }
-
-    open fun onErrorDismissClick(errorState: ErrorState) {
-        hideError()
-    }
-
-    protected fun hideError() {
-        _error.tryEmit(ErrorState.None)
-    }
+    open fun onErrorConfirmation(errorState: ErrorState) {}
 
     fun sendMessage(message: Message) {
         viewModelScope.launch {
             _message.emit(message)
         }
-
     }
 
     protected fun <T> Flow<T>.injectLoading(): Flow<T> = this

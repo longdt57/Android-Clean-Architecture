@@ -10,7 +10,7 @@ import leegroup.module.designsystem.ui.models.ErrorState
 
 @Composable
 fun ErrorView(
-    error: ErrorState,
+    error: ErrorState?,
     onErrorConfirmation: (ErrorState) -> Unit = {},
     onErrorDismissRequest: (ErrorState) -> Unit = {},
 ) {

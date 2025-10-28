@@ -2,7 +2,10 @@ package leegroup.module.designsystem.ui.screen
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.Job
@@ -10,6 +13,7 @@ import kotlinx.coroutines.launch
 import leegroup.module.core.extensions.compose.collectAsEffect
 import leegroup.module.designsystem.components.ErrorView
 import leegroup.module.designsystem.components.LoadingView
+import leegroup.module.designsystem.ui.models.ErrorState
 import leegroup.module.designsystem.ui.models.LocalTopSnackbarHostStateManager
 import leegroup.module.designsystem.ui.models.Message
 import leegroup.module.designsystem.ui.viewmodel.BaseViewModel
@@ -36,11 +40,14 @@ fun LoadingView(viewModel: BaseViewModel) {
 
 @Composable
 fun ErrorView(viewModel: BaseViewModel) {
-    val error by viewModel.error.collectAsStateWithLifecycle()
+    var error: ErrorState? by remember { mutableStateOf(null) }
+    viewModel.error.collectAsEffect { errorEvent ->
+        error = errorEvent
+    }
     ErrorView(
         error = error,
         onErrorConfirmation = { viewModel.onErrorConfirmation(it) },
-        onErrorDismissRequest = { viewModel.onErrorDismissClick(it) }
+        onErrorDismissRequest = { error = null }
     )
 }
 

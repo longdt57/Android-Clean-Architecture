@@ -2,7 +2,6 @@ package leegroup.module.sample.gituser.ui.screen.gituserdetail
 
 import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
-import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
@@ -191,20 +190,6 @@ class GitUserDetailViewModelTest : BaseUnitTest() {
         initViewModel()
         viewModel.onErrorConfirmation(ErrorState.Network)
         verify(exactly = 2) { mockRemoteUseCase(userLogin) }
-    }
-
-    @Test
-    fun `When Api onDismissClick is called, it hides error`() = runTest {
-        every { mockLocalUseCase(userLogin) } returns flowOf()
-        every { mockRemoteUseCase(userLogin) } returns flow {
-            throw MockUtil.noConnectivityException
-        }
-
-        initViewModel()
-        viewModel.onErrorDismissClick(MockUtil.apiErrorState)
-        viewModel.error.test {
-            expectMostRecentItem() shouldBe ErrorState.None
-        }
     }
 
     @Test
