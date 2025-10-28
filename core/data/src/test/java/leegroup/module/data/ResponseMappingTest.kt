@@ -1,12 +1,10 @@
-package tori.core.data
+package leegroup.module.data
 
 import app.cash.turbine.test
-import io.ktor.client.request.get
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import leegroup.module.core.util.JsonUtil
-import leegroup.module.data.ApiMockUtil
 import leegroup.module.data.network.ResponseMapper.asCustomResult
 import leegroup.module.data.network.ResponseMapper.asResult
 import leegroup.module.data.network.ResponseMapper.flowTransform

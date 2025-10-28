@@ -1,10 +1,8 @@
-package tori.core.data
+package leegroup.module.data
 
 import io.ktor.client.plugins.ClientRequestException
-import io.ktor.client.request.get
 import kotlinx.coroutines.test.runTest
 import leegroup.module.core.util.JsonUtil
-import leegroup.module.data.ApiMockUtil
 import leegroup.module.data.network.ErrorMapper.mapApiCustomError
 import leegroup.module.data.network.ErrorMapper.mapApiError
 import leegroup.module.data.network.model.error.ErrorModel
