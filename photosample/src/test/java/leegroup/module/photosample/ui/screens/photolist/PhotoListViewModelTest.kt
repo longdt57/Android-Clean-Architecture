@@ -11,7 +11,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
-import leegroup.module.designsystem.ui.models.ErrorState
+import leegroup.module.designsystem.ui.models.ErrorDialog
 import leegroup.module.photosample.domain.models.PhotoModelD
 import leegroup.module.photosample.domain.params.SaveFavoriteParam
 import leegroup.module.photosample.domain.usecases.photofavorite.ObserveFavoriteListUseCase
@@ -84,11 +84,11 @@ class PhotoListViewModelTest : BaseUnitTest() {
     fun `test handle LoadIfEmpty action, handle error`() = runTest {
         every { getPhotoListUseCase.invoke(any()) } returns flow { throw RuntimeException() }
 
-        photoListViewModel.handleActionLoadIfEmpty()
 
         // Verify that loadMore is called if the list is empty
         photoListViewModel.error.test {
-            expectMostRecentItem() shouldBe ErrorState.Common
+            photoListViewModel.handleActionLoadIfEmpty()
+            awaitItem() shouldBe ErrorDialog.Common
         }
     }
 
@@ -233,7 +233,7 @@ class PhotoListViewModelTest : BaseUnitTest() {
 
     @Test
     fun `test handle Error action triggers loadMore on API or Network error`() = runTest {
-        val errorState = ErrorState.Api()
+        val errorState = ErrorDialog.Api()
 
         // Simulate an error
         photoListViewModel.onErrorConfirmation(errorState)
@@ -244,7 +244,7 @@ class PhotoListViewModelTest : BaseUnitTest() {
 
     @Test
     fun `test handle Error action not triggers loadMore on API or Network error`() = runTest {
-        val errorState = ErrorState.Common
+        val errorState = ErrorDialog.Common
 
         // Simulate an error
         photoListViewModel.onErrorConfirmation(errorState)

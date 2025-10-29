@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import leegroup.module.core.extensions.orFalse
 import leegroup.module.core.extensions.orZero
 import leegroup.module.core.util.DispatchersProvider
-import leegroup.module.designsystem.ui.models.ErrorState
+import leegroup.module.designsystem.ui.models.ErrorDialog
 import leegroup.module.designsystem.ui.viewmodel.StateViewModel
 import leegroup.module.photosample.domain.models.PhotoModelD
 import leegroup.module.photosample.domain.params.GetPhotoListParam
@@ -116,7 +116,7 @@ internal class PhotoListViewModel @Inject constructor(
                 .injectLoading()
                 .onEach { result -> onLoadMoreSuccess(result) }
                 .flowOn(dispatchersProvider.io)
-                .catch { e -> handleError(e) }
+                .catch { e -> handleErrorAndShowDialog(e) }
                 .launchIn(viewModelScope)
                 .join()
         }
@@ -148,10 +148,10 @@ internal class PhotoListViewModel @Inject constructor(
 
     private fun isUiStateEmpty() = uiState.value.photos.isEmpty()
 
-    override fun onErrorConfirmation(errorState: ErrorState) {
+    override fun onErrorConfirmation(errorState: ErrorDialog) {
         super.onErrorConfirmation(errorState)
         when (errorState) {
-            is ErrorState.Api, is ErrorState.Network -> loadMore()
+            is ErrorDialog.Api, is ErrorDialog.Network -> loadMore()
             else -> Unit
         }
     }

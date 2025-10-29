@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import leegroup.module.core.util.DispatchersProvider
 import leegroup.module.core.util.SavedStateProvider
-import leegroup.module.designsystem.ui.models.ErrorState
+import leegroup.module.designsystem.ui.models.ErrorDialog
 import leegroup.module.designsystem.ui.viewmodel.StateViewModel
 import leegroup.module.sample.gituser.domain.models.GitUserDetailModel
 import leegroup.module.sample.gituser.domain.usecases.gituser.GetGitUserDetailLocalUseCase
@@ -69,7 +69,7 @@ internal class GitUserDetailViewModel @Inject constructor(
             .flowOn(dispatchersProvider.io)
             .catch { e ->
                 if (isDataEmpty()) {
-                    handleError(e)  // Show error if data is empty
+                    handleErrorAndShowDialog(e)  // Show error if data is empty
                 } else {
                     Timber.e(e)
                 }
@@ -95,10 +95,10 @@ internal class GitUserDetailViewModel @Inject constructor(
 
     private fun getLogin() = getUiState().login
 
-    override fun onErrorConfirmation(errorState: ErrorState) {
+    override fun onErrorConfirmation(errorState: ErrorDialog) {
         super.onErrorConfirmation(errorState)
         when (errorState) {
-            is ErrorState.Api, is ErrorState.Network -> fetchRemote()
+            is ErrorDialog.Api, is ErrorDialog.Network -> fetchRemote()
             else -> Unit
         }
     }

@@ -11,9 +11,9 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
-import leegroup.module.designsystem.support.extensions.mapApiError
-import leegroup.module.designsystem.ui.models.ErrorModel
-import leegroup.module.designsystem.ui.models.ErrorState
+import leegroup.module.designsystem.support.extensions.mapToErrorDialog
+import leegroup.module.designsystem.support.extensions.mapToMessage
+import leegroup.module.designsystem.ui.models.ErrorDialog
 import leegroup.module.designsystem.ui.models.LoadingState
 import leegroup.module.designsystem.ui.models.Message
 
@@ -23,7 +23,7 @@ abstract class BaseViewModel : ViewModel() {
     private val _loading: MutableStateFlow<LoadingState> = MutableStateFlow(LoadingState.None)
     val loading = _loading.asStateFlow()
 
-    protected val _error = MutableSharedFlow<ErrorState>(
+    protected val _error = MutableSharedFlow<ErrorDialog>(
         extraBufferCapacity = 1,
         onBufferOverflow = BufferOverflow.DROP_OLDEST
     )
@@ -54,20 +54,20 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     protected open fun sendErrorState(
-        errorState: ErrorState
+        errorState: ErrorDialog
     ) {
         _error.tryEmit(errorState)
     }
 
-    protected open suspend fun handleError(
-        e: Throwable,
-        action: (ErrorState) -> Unit = { sendErrorState(it) }
-    ) {
-        val error = e.mapApiError<ErrorModel>()
-        action(error)
+    protected open suspend fun handleErrorAndShowDialog(e: Throwable) {
+        _error.tryEmit(e.mapToErrorDialog())
     }
 
-    open fun onErrorConfirmation(errorState: ErrorState) {}
+    protected open suspend fun handleErrorAndSendMessage(e: Throwable) {
+        _message.tryEmit(e.mapToMessage())
+    }
+
+    open fun onErrorConfirmation(errorState: ErrorDialog) {}
 
     fun sendMessage(message: Message) {
         viewModelScope.launch {
@@ -78,4 +78,19 @@ abstract class BaseViewModel : ViewModel() {
     protected fun <T> Flow<T>.injectLoading(): Flow<T> = this
         .onStart { showLoading() }
         .onCompletion { hideLoading() }
+}
+
+fun BaseViewModel.sendSuccessMessage(
+    messageStringId: Int? = null,
+    alternativeMessage: String? = null
+) {
+    sendMessage(Message.SnackBarMessage.buildSuccess(messageStringId, alternativeMessage))
+}
+
+
+fun BaseViewModel.sendErrorMessage(
+    messageStringId: Int? = null,
+    alternativeMessage: String? = null
+) {
+    sendMessage(Message.SnackBarMessage.buildError(messageStringId, alternativeMessage))
 }

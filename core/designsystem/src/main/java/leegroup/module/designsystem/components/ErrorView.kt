@@ -6,18 +6,18 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import leegroup.module.designsystem.ui.models.ErrorModel
-import leegroup.module.designsystem.ui.models.ErrorState
+import leegroup.module.designsystem.ui.models.ErrorDialog
 
 @Composable
 fun ErrorView(
-    error: ErrorState?,
-    onErrorConfirmation: (ErrorState) -> Unit = {},
-    onErrorDismissRequest: (ErrorState) -> Unit = {},
+    error: ErrorDialog?,
+    onErrorConfirmation: (ErrorDialog) -> Unit = {},
+    onErrorDismissRequest: (ErrorDialog) -> Unit = {},
 ) {
     when (error) {
-        is ErrorState.MessageError -> {
+        is ErrorDialog.MessageError -> {
             val message = when (error) {
-                is ErrorState.Api -> error.customMessage ?: stringResource(error.messageRes)
+                is ErrorDialog.Api -> error.customMessage ?: stringResource(error.messageRes)
                 else -> stringResource(error.messageRes)
             }
             AlertDialogView(
@@ -37,7 +37,7 @@ fun ErrorView(
                 onDismissRequest = { onErrorDismissRequest(error) })
         }
 
-        is ErrorState.None -> {}
+        is ErrorDialog.None -> {}
     }
 }
 
@@ -45,7 +45,7 @@ fun ErrorView(
 @Composable
 private fun CommonErrorViewPreview() {
     leegroup.module.designsystem.theme.ComposeTheme {
-        ErrorView(ErrorState.Common)
+        ErrorView(ErrorDialog.Common)
     }
 }
 
@@ -53,7 +53,7 @@ private fun CommonErrorViewPreview() {
 @Composable
 private fun NetworkErrorViewPreview() {
     leegroup.module.designsystem.theme.ComposeTheme {
-        ErrorView(ErrorState.Network)
+        ErrorView(ErrorDialog.Network)
     }
 }
 
@@ -61,7 +61,7 @@ private fun NetworkErrorViewPreview() {
 @Composable
 private fun ServerErrorViewPreview() {
     leegroup.module.designsystem.theme.ComposeTheme {
-        ErrorView(ErrorState.Server)
+        ErrorView(ErrorDialog.Server)
     }
 }
 
@@ -69,7 +69,7 @@ private fun ServerErrorViewPreview() {
 @Composable
 private fun ApiErrorViewPreview() {
     leegroup.module.designsystem.theme.ComposeTheme {
-        ErrorView(ErrorState.Api())
+        ErrorView(ErrorDialog.Api())
     }
 }
 
@@ -78,7 +78,7 @@ private fun ApiErrorViewPreview() {
 private fun CustomApiErrorViewPreview() {
     leegroup.module.designsystem.theme.ComposeTheme {
         ErrorView(
-            ErrorState.Api(
+            ErrorDialog.Api(
                 error = ErrorModel(
                     message = "Custom message"
                 )

@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import leegroup.module.core.extensions.compose.collectAsEffect
 import leegroup.module.designsystem.components.ErrorView
 import leegroup.module.designsystem.components.LoadingView
-import leegroup.module.designsystem.ui.models.ErrorState
+import leegroup.module.designsystem.ui.models.ErrorDialog
 import leegroup.module.designsystem.ui.models.LocalTopSnackbarHostStateManager
 import leegroup.module.designsystem.ui.models.Message
 import leegroup.module.designsystem.ui.viewmodel.BaseViewModel
@@ -40,7 +40,7 @@ fun LoadingView(viewModel: BaseViewModel) {
 
 @Composable
 fun ErrorView(viewModel: BaseViewModel) {
-    var error: ErrorState? by remember { mutableStateOf(null) }
+    var error: ErrorDialog? by remember { mutableStateOf(null) }
     viewModel.error.collectAsEffect { errorEvent ->
         error = errorEvent
     }

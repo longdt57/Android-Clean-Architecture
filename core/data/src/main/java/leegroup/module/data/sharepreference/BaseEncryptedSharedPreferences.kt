@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKeys
 
+@Deprecated("Use EncryptedDataStore")
 abstract class BaseEncryptedSharedPreferences(
     applicationContext: Context,
     prefName: String

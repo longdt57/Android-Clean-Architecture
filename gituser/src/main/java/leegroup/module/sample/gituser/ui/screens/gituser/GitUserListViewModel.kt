@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import leegroup.module.core.util.DispatchersProvider
-import leegroup.module.designsystem.ui.models.ErrorState
+import leegroup.module.designsystem.ui.models.ErrorDialog
 import leegroup.module.designsystem.ui.viewmodel.StateViewModel
 import leegroup.module.sample.gituser.domain.models.GitUserModel
 import leegroup.module.sample.gituser.domain.params.GetGitUserListParam
@@ -57,15 +57,15 @@ internal class GitUserListViewModel @Inject internal constructor(
             }
             .flowOn(dispatchersProvider.io)
             .catch { e ->
-                handleError(e)
+                handleErrorAndShowDialog(e)
             }
             .launchIn(viewModelScope)
     }
 
-    override fun onErrorConfirmation(errorState: ErrorState) {
+    override fun onErrorConfirmation(errorState: ErrorDialog) {
         super.onErrorConfirmation(errorState)
         when (errorState) {
-            is ErrorState.Api, is ErrorState.Network -> loadMore()
+            is ErrorDialog.Api, is ErrorDialog.Network -> loadMore()
             else -> Unit
         }
     }

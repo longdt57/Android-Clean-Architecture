@@ -2,7 +2,7 @@ package leegroup.module.designsystem
 
 import io.mockk.every
 import io.mockk.mockk
-import leegroup.module.designsystem.ui.models.ErrorState
+import leegroup.module.designsystem.ui.models.ErrorDialog
 import okhttp3.ResponseBody
 import retrofit2.HttpException
 import retrofit2.Response
@@ -12,7 +12,7 @@ import java.net.UnknownHostException
 object MockUtil {
     val serverException: Throwable = ConnectException()
     val noConnectivityException: Throwable = UnknownHostException()
-    val apiErrorState = ErrorState.Api()
+    val apiErrorState = ErrorDialog.Api()
 
     val apiError: HttpException
         get() {

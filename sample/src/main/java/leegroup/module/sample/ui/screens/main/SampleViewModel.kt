@@ -28,7 +28,7 @@ internal class SampleViewModel @Inject constructor(
             .injectLoading()
             .onEach { sample -> handleSample(sample) }
             .flowOn(dispatchersProvider.io)
-            .catch { handleError(it) }
+            .catch { handleErrorAndShowDialog(it) }
             .launchIn(viewModelScope)
     }
 

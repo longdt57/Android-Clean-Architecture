@@ -2,10 +2,10 @@ package leegroup.module.designsystem.ui.models
 
 import leegroup.module.designsystem.R
 
-interface ErrorState {
-    data object None : ErrorState
+interface ErrorDialog {
+    data object None : ErrorDialog
 
-    interface MessageError : ErrorState {
+    interface MessageError : ErrorDialog {
         val iconRes: Int? get() = null
         val titleRes: Int get() = R.string.something_went_wrong
         val messageRes: Int get() = R.string.popup_error_unknown_body

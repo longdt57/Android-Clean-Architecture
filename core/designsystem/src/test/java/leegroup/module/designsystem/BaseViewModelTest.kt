@@ -1,12 +1,14 @@
 package leegroup.module.designsystem
 
+import app.cash.turbine.test
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.test.runTest
-import leegroup.module.designsystem.ui.models.ErrorState
+import leegroup.module.designsystem.ui.models.ErrorDialog
 import leegroup.module.designsystem.ui.models.LoadingState
+import leegroup.module.designsystem.ui.models.Message
 import leegroup.module.designsystem.ui.viewmodel.BaseViewModel
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
@@ -60,70 +62,14 @@ class MockBaseViewModelTest {
     }
 
     @Test
-    fun `test handleAction HandleError triggers correct error state`() = runTest {
-        val exception = MockUtil.noConnectivityException
-
-        // Trigger HandleError action
-        mockBaseViewModel.handleAction(MockBaseViewModel.Action.HandleError(exception))
-
-        // Assert that error state is set to Network error
-        assertTrue(mockBaseViewModel.error.value is ErrorState.Network)
-    }
-
-    @Test
-    fun `test handleAction HideError triggers hideError`() = runTest {
-        // Trigger an error to set an error state
-        mockBaseViewModel.handleAction(MockBaseViewModel.Action.HandleError(MockUtil.serverException))
-
-        // Assert that an error state is present
-        assertTrue(mockBaseViewModel.error.value is ErrorState.Server)
-
-        // Now, hide the error
-        mockBaseViewModel.handleAction(MockBaseViewModel.Action.HideError)
-
-        // Assert that error state is reset to None
-        assertEquals(ErrorState.None, mockBaseViewModel.error.value)
-    }
-
-    @Test
-    fun `test handle api error`() = runTest {
-        // Trigger an error state
-        mockBaseViewModel.handleAction(
-            MockBaseViewModel.Action.HandleError(MockUtil.apiError)
-        )
-
-        // Assert that an error state is set
-        assertTrue(mockBaseViewModel.error.value is ErrorState.Api)
-    }
-
-    @Test
-    fun `test handleAction OnErrorDismissClick triggers hideError`() = runTest {
-        // Trigger an error state
-        mockBaseViewModel.handleAction(MockBaseViewModel.Action.HandleError(MockUtil.apiError))
-
-        // Assert that an error state is set
-        assertTrue(mockBaseViewModel.error.value is ErrorState.Api)
-
-        // Now, simulate error dismissal
-        mockBaseViewModel.handleAction(MockBaseViewModel.Action.OnErrorDismissClick)
-
-        // Assert that error state is reset to None
-        assertEquals(ErrorState.None, mockBaseViewModel.error.value)
-    }
-
-    @Test
-    fun `test handleAction OnErrorConfirmation triggers hideError`() = runTest {
-        // Trigger an error state
-        mockBaseViewModel.handleAction(MockBaseViewModel.Action.HandleError(MockUtil.serverException))
-
-        // Assert that an error state is set
-        assertTrue(mockBaseViewModel.error.value is ErrorState.Server)
-
-        // Now, simulate error confirmation
-        mockBaseViewModel.handleAction(MockBaseViewModel.Action.OnErrorConfirmation)
-
-        // Assert that error state is reset to None
-        assertEquals(ErrorState.None, mockBaseViewModel.error.value)
+    fun `test handleAction SendMessage emits message`() = runTest {
+        val msg = "Hello world"
+        val testMessage = Message.SnackBarMessage.buildSuccess(alternativeMessage = msg)
+        mockBaseViewModel.message.test {
+            mockBaseViewModel.handleAction(MockBaseViewModel.Action.SendMessage(testMessage))
+            val item = awaitItem()
+            assertEquals(msg, (item as Message.SnackBarMessage).alternativeMessage)
+        }
     }
 }
 
@@ -133,8 +79,9 @@ private class MockBaseViewModel : BaseViewModel() {
         when (action) {
             is Action.ShowLoading -> showLoading()
             is Action.HideLoading -> hideLoading()
-            is Action.HandleError -> handleError(action.throwable)
-            is Action.OnErrorConfirmation -> onErrorConfirmation(ErrorState.None)
+            is Action.HandleError -> handleErrorAndShowDialog(action.throwable)
+            is Action.OnErrorConfirmation -> onErrorConfirmation(ErrorDialog.None)
+            is Action.SendMessage -> sendMessage(action.message)
         }
     }
 
@@ -149,8 +96,7 @@ private class MockBaseViewModel : BaseViewModel() {
         data object ShowLoading : Action
         data object HideLoading : Action
         data class HandleError(val throwable: Throwable) : Action
-        data object HideError : Action
-        data object OnErrorDismissClick : Action
         data object OnErrorConfirmation : Action
+        data class SendMessage(val message: Message) : Action
     }
 }
