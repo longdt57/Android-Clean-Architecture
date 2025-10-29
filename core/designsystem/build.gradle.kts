@@ -52,6 +52,8 @@ dependencies {
     implementation(projects.core.coreKtx)
     implementation(projects.core.data)
 
+    implementation(libs.android.tracking)
+
     // Lifecycle
     api(libs.bundles.androidx.lifecycle)
 

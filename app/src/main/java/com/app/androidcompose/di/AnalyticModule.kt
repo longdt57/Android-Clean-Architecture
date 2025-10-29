@@ -7,17 +7,17 @@ import dagger.hilt.components.SingletonComponent
 import leegroup.module.analytics.AnalyticsManager
 import leegroup.module.analytics.clients.ClientType
 import leegroup.module.analytics.clients.FirebaseClient
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 class AnalyticModule {
 
     @Provides
-    fun provideAnalytics(
-        firebaseClient: FirebaseClient
-    ): AnalyticsManager {
+    @Singleton
+    fun provideAnalytics(): AnalyticsManager {
         return AnalyticsManager(
-            listOf(firebaseClient),
+            listOf(FirebaseClient()),
             defaultLogEventClientType = ClientType.FIREBASE
         )
     }
