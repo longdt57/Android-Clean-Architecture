@@ -39,10 +39,10 @@ internal suspend fun Throwable.mapToMessage(): Message {
             )
         }
 
-        is ClientRequestException -> {
-            val error = response.body<ErrorModel>()
+        is HttpException, is ClientRequestException -> {
+            val error = asErrorModel()
             Message.SnackBarMessage.buildError(
-                messageStringId = errorMapping[error.code],
+                messageStringId = errorMapping[error?.code],
                 alternativeMessage = message
             )
         }

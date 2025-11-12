@@ -57,7 +57,7 @@ internal class GitUserListViewModel @Inject internal constructor(
             }
             .flowOn(dispatchersProvider.io)
             .catch { e ->
-                handleErrorAndShowDialog(e)
+                handleErrorAndSendMessage(e)
             }
             .launchIn(viewModelScope)
     }

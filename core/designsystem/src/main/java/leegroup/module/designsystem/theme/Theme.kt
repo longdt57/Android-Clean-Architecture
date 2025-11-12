@@ -14,6 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import leegroup.module.designsystem.ui.models.LocalTopSnackbarHostStateManager
 import leegroup.module.designsystem.ui.models.SnackbarHostStateManager
+import leegroup.module.designsystem.ui.models.SnackbarType
 
 private val DarkColorScheme = darkColorScheme(
     primary = White100,
@@ -85,7 +86,21 @@ fun ComposeTheme(
             colorScheme = colorScheme,
             typography = Typography,
             shapes = Shapes,
-            content = content,
+            content = {
+                content()
+                AppSnackBar(
+                    SnackbarType.Error,
+                    snackbarHostState = snackbarErrorHostState
+                )
+                AppSnackBar(
+                    SnackbarType.Success,
+                    snackbarHostState = snackbarHostState
+                )
+                AppSnackBar(
+                    SnackbarType.Warning,
+                    snackbarHostState = snackbarWarningHostState
+                )
+            },
         )
     }
 }
