@@ -4,11 +4,11 @@ activityCompose = "1.11.0"
 agp = "8.13.0"
 androidTracking = "1.0.9"
 appcompat = "1.7.1"
-appDistribution = "5.1.1"
+appDistribution = "5.2.0"
 
 chucker = "4.2.0"
 coil = "3.3.0"
-composeBom = "2025.10.01"
+composeBom = "2025.11.00"
 compileSdk = "36"
 composeExtensionVersion = "1.5.4"
 core = "1.7.0"
@@ -24,7 +24,7 @@ detektVersion = "1.23.0"
 espressoCore = "3.7.0"
 
 firebaseBom = "33.16.0"
-firebasePref = "2.0.1"
+firebasePref = "2.0.2"
 firebaseFirestore = "26.0.2"
 
 googleService = "4.4.4"
@@ -43,7 +43,7 @@ kotlinxSerializationJson = "1.9.0"
 kover = "0.9.3"
 ksp = "2.1.21-2.0.2"
 
-ktorClient = "3.3.1"
+ktorClient = "3.3.2"
 lifecycleRuntimeKtx = "2.9.4"
 leakcanary = "2.14"
 
@@ -53,9 +53,9 @@ materialIconsExtended = "1.7.8"
 minSdk = "24"
 mockk = "1.14.6"
 
-navigationCompose = "2.9.5"
+navigationCompose = "2.9.6"
 
-okhttp = "5.2.1"
+okhttp = "5.3.0"
 
 prod = "prod"
 

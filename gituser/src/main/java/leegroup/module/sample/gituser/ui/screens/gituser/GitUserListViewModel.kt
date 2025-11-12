@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import leegroup.module.core.util.DispatchersProvider
+import leegroup.module.data.network.ResponseMapper.asResult
 import leegroup.module.designsystem.ui.models.ErrorDialog
 import leegroup.module.designsystem.ui.viewmodel.StateViewModel
 import leegroup.module.sample.gituser.domain.models.GitUserModel
@@ -52,13 +53,13 @@ internal class GitUserListViewModel @Inject internal constructor(
         val param = GetGitUserListParam(getSince(), PER_PAGE)
         useCase(param)
             .injectLoading()
+            .asResult()
             .onEach { result ->
-                handleSuccess(result)
+                result
+                    .onSuccess { handleSuccess(it) }
+                    .onFailure { handleErrorAndSendMessage(it) }
             }
             .flowOn(dispatchersProvider.io)
-            .catch { e ->
-                handleErrorAndSendMessage(e)
-            }
             .launchIn(viewModelScope)
     }
 
